@@ -75,6 +75,7 @@ title: "Members"
       <li>Avid ball knower</li>
       <li>Loves basketball and football</li>
       <li>Enjoys history shows and movies
+  </div>
 
 </div>
 
