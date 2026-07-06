@@ -18,7 +18,7 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/snoopy.jpeg"
+  <img src="/26-the-optimizers/members/Advait_professional.jpeg"
        alt="Snoopy"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
@@ -40,7 +40,7 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/snoopy.jpeg"
+  <img src="/26-the-optimizers/members/IMG_0133.jpeg"
        alt="Snoopy"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
@@ -63,7 +63,7 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/snoopy.jpeg"
+  <img src="/26-the-optimizers/members/IMG_0133.jpeg"
        alt="Snoopy"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
@@ -84,7 +84,7 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/snoopy.jpeg"
+  <img src="/26-the-optimizers/members/IMG_9543.jpeg"
        alt="Snoopy"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
@@ -105,7 +105,7 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/snoopy.jpeg"
+  <img src="/26-the-optimizers/members/shreyas.jpeg"
        alt="Snoopy"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
