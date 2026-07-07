@@ -19,7 +19,7 @@ title: "Members"
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
   <img src="/26-the-optimizers/members/Advait_professional.jpeg"
-       alt="Snoopy"
+       alt="Advait"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
   <div style="flex: 1; text-align: left;">
@@ -40,8 +40,8 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/IMG_0133.jpeg"
-       alt="Snoopy"
+  <img src="/26-the-optimizers/members/ashley.jpeg"
+       alt="Ashley"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
   <div style="flex: 1; text-align: left;">
@@ -63,8 +63,8 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/47144.jpg"
-       alt="Snoopy"
+  <img src="/26-the-optimizers/members/sahil.jpg"
+       alt="Sahil"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
   <div style="flex: 1; text-align: left;">
@@ -84,8 +84,8 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/IMG_9543.jpg"
-       alt="Snoopy"
+  <img src="/26-the-optimizers/members/sonia.jpg"
+       alt="Sonia"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
   <div style="flex: 1; text-align: left;">
@@ -105,8 +105,8 @@ title: "Members"
 
 <div class="member-block" style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
 
-  <img src="/26-the-optimizers/members/shreyas.jpeg"
-       alt="Snoopy"
+  <img src="/26-the-optimizers/members/shreyassquare.jpeg"
+       alt="Shreyas"
        style="width: 150px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
   <div style="flex: 1; text-align: left;">
