@@ -14,6 +14,18 @@
           {{ . }}
         </div>
       {{ end }}
+
+      {{ $projectPages := .RegularPagesRecursive.ByDate.Reverse }}
+      {{ if $projectPages }}
+        <section class="optimizers-section-list">
+          <h2 class="posts-title">Project Reports</h2>
+          <div class="posts-list">
+            {{ range $projectPages }}
+              {{ partial "post-card.html" (dict "page" . "limit" 3) }}
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
     </article>
   </div>
 {{ end }}
