@@ -4,7 +4,36 @@
 
 Our study was conducted on the members of the 2026 COSMOS Cluster 11 at UC Davis. We claim that UC Davis COSMOS assigned students with roommates from another cluster, implying that none of the members of our study are roommates with each other. The questions on our survey were all directly asked on the COSMOS Roommate survey. Our data was acquired and cleaned manually.
 
-### Data Analysis
+### Data 
+
+
+The following table shows the cleaned survey data used in our analysis.
+
+| Roommate Cluster | Same Grade | Similar Sleep Schedule | Roommate Rating | Shared Interest |
+| --- | --- | --- | --- | --- |
+| 14 | True | True | 9 | Sports |
+| 4 | True | True | 8 | Sports |
+| 11 | False | True | 6 | No shared interest |
+| 3 | True | True | 8 | Sports |
+| 13 | True | True | 8 | Sports |
+| 5 | True | True | 8 | Sports |
+| 4 | False | True | 7 | No shared interest |
+| 13 | True | True | 9 | Arts |
+| 2 | True | True | 9 | Academics |
+| 13 | False | False | 5 | No shared interest |
+| 11 | True | True | 8 | Sports |
+| 7 | True | True | 5 | No shared interest |
+| 12 | True | True | 8 | Academics |
+| 5 | True | False | 8 | Academics |
+| 12 | True | True | 7 | Sports |
+| 3 | True | True | 8 | Sports |
+| 1 | True | True | 6 | Academics |
+| 10 | True | True | 6 | No shared interest |
+| 8 | True | False | 7 | Academics |
+| 1 | True | True | 4 | Academics |
+| 13 | True | True | 8 | Arts |
+
+### Analysis
 
 Qualities such as being in the same grade, sharing common interests, sharing the same sleep schedule, and satisfaction with the roommate (all of which were considered in our study), provide an insight into whether COSMOS UC Davis considered the survey or not. 
 
