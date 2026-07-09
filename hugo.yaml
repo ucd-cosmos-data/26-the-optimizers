@@ -70,7 +70,7 @@ menus:
       weight: 40
     - identifier: course-site
       name: Course Website
-      url: https://ucd-cosmos-data.github.io/
+      url: https://ucd-cosmos-data.github.io/26-the-optimizers/
 
 markup:
   tableOfContents:
