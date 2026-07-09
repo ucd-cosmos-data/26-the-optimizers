@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      <header class="post-header">
+        {{ partial "breadcrumb.html" . }}
+        <h1 class="post-title-main">{{ .Title }}</h1>
+        {{ with .Description }}
+          <p class="post-description-main">{{ . }}</p>
+        {{ end }}
+      </header>
+
+      {{ with .Content }}
+        <div class="post-content-main">
+          {{ . }}
+        </div>
+      {{ end }}
+    </article>
+  </div>
+{{ end }}
