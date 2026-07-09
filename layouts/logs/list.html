@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      <header class="post-header">
+        {{ partial "breadcrumb.html" . }}
+        <h1 class="post-title-main">{{ .Title }}</h1>
+        {{ with .Description }}
+          <p class="post-description-main">{{ . }}</p>
+        {{ end }}
+      </header>
+
+      {{ with .Content }}
+        <div class="post-content-main">
+          {{ . }}
+        </div>
+      {{ end }}
+
+      {{ $logs := .RegularPagesRecursive.ByDate.Reverse }}
+      {{ if $logs }}
+        <section class="optimizers-section-list">
+          <h2 class="posts-title">Entries</h2>
+          <div class="posts-list">
+            {{ range $logs }}
+              {{ partial "post-card.html" (dict "page" . "limit" 3) }}
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    </article>
+  </div>
+{{ end }}

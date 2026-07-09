@@ -1,0 +1,36 @@
+{{ $constants := resources.Get "js/common/constants.js" }}
+{{ $utils := resources.Get "js/utils.js" }}
+{{ $themeToggle := resources.Get "js/theme-toggle.js" }}
+{{ $search := resources.Get "js/search.js" }}
+{{ $scrollToTop := resources.Get "js/scroll-to-top.js" }}
+{{ $navigation := resources.Get "js/navigation.js" }}
+{{ $toc := resources.Get "js/toc.js" }}
+{{ $filters := resources.Get "js/filters.js" }}
+{{ $codeBlocks := resources.Get "js/code-blocks.js" }}
+{{ $blockquotes := resources.Get "js/blockquotes.js" }}
+{{ $languageSwitcher := resources.Get "js/language-switcher.js" }}
+{{ $pageTransitions := resources.Get "js/page-transitions.js" }}
+{{ $readingProgress := resources.Get "js/reading-progress.js" }}
+{{ $js := slice $constants $utils $themeToggle $search $scrollToTop $navigation $toc $filters $codeBlocks $blockquotes $languageSwitcher $pageTransitions $readingProgress | resources.Concat "js/main.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+
+{{ if or .Params.math .Site.Params.math }}
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    }
+  });
+</script>
+{{ end }}
+
+{{ if .HasShortcode "plotly" }}
+<script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+{{ end }}

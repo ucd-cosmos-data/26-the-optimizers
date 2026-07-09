@@ -1,0 +1,74 @@
+{{ define "main" }}
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            {{ if site.Params.heroTitleLine1 }}
+              <span class="hero-title-line1">{{ site.Params.heroTitleLine1 }}</span>
+            {{ else }}
+              <span class="hero-title-line1">{{ site.Title }}</span>
+            {{ end }}
+            {{ if site.Params.heroTitleLine2 }}
+              <span class="hero-title-line2">{{ site.Params.heroTitleLine2 }}</span>
+            {{ end }}
+          </h1>
+          {{ if site.Params.description }}
+            <p class="hero-subtitle">&gt; {{ site.Params.description }}</p>
+          {{ end }}
+          {{ if site.Params.social }}
+            <div class="hero-social">
+              {{ partial "social-links.html" . }}
+            </div>
+          {{ end }}
+        </div>
+        <div class="hero-image">
+          {{ $avatarUrl := site.Params.avatar.home.url | default site.Params.avatar.url }}
+          {{ $avatarAsset := site.Params.avatar.home.assetPath | default site.Params.avatar.assetPath }}
+          {{ $enableResize := site.Params.avatar.home.enableResize | default site.Params.avatar.enableResize | default false }}
+
+          {{ if $avatarUrl }}
+            <img src="{{ $avatarUrl }}" alt="{{ site.Title }}" class="hero-logo">
+          {{ else if $avatarAsset }}
+            {{ with resources.Get $avatarAsset }}
+              {{ if $enableResize }}
+                {{ with .Resize "512x" }}
+                  <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
+                {{ end }}
+              {{ else }}
+                <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="home-container">
+    <section class="posts-section">
+      <h2 class="posts-title">Explore</h2>
+      <p class="optimizers-home-intro">
+        Project notes, team profiles, working logs, and photos from The Optimizers.
+      </p>
+      <div class="optimizers-section-grid">
+        <a class="optimizers-section-card" href="{{ "members/" | relURL }}">
+          <span class="optimizers-section-card-title">Members</span>
+          <span class="optimizers-section-card-text">Meet the team behind the project.</span>
+        </a>
+        <a class="optimizers-section-card" href="{{ "project/" | relURL }}">
+          <span class="optimizers-section-card-title">Project</span>
+          <span class="optimizers-section-card-text">Follow the main project work.</span>
+        </a>
+        <a class="optimizers-section-card" href="{{ "logs/" | relURL }}">
+          <span class="optimizers-section-card-title">Logs</span>
+          <span class="optimizers-section-card-text">Read progress updates and notes.</span>
+        </a>
+        <a class="optimizers-section-card" href="{{ "photos/" | relURL }}">
+          <span class="optimizers-section-card-title">Photos</span>
+          <span class="optimizers-section-card-text">Browse the project photo gallery.</span>
+        </a>
+      </div>
+    </section>
+  </div>
+{{ end }}
