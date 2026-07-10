@@ -1,5 +1,5 @@
 ---
-title: "Survey Analysis"
+title: "Statistical Analysis—Did COSMOS UC Davis Use Roommate Surveys?"
 date: 2026-07-09
 author: "The Optimizers"
 description: "An analysis of whether COSMOS UC Davis used roommate survey responses when assigning roommates."
