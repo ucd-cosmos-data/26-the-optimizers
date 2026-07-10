@@ -19,7 +19,7 @@ We learned about data acquisition in lecture and made a mini survey during lab. 
     style="width: 200px; height: 150px; object-fit: contain; border-radius: 0%; object-position: center; flex-shrink: 0;">
 
 ### Wednesday
-Continuing through the data science pipeline, during the morning session we learned about different methods of data cleaning. After lunch, we attended a campus-wide lecture by UC Davis professor Dr. Alison on agricultural misinformation! During lab, we began compiling data for a mini project examining depression rates and precipitation in CA counties.
+Continuing through the data science pipeline, during the morning session we learned about different methods of data cleaning. After lunch, we attended a campus-wide lecture by UC Davis professor Dr. Alison Van Eenennaam on agricultural misinformation! During lab, we began compiling data for a mini project examining depression rates and precipitation in CA counties.
 
 <img src="/26-the-optimizers/logs/log1/IMG_9976.jpg"
     alt="Agricultural lecture"
