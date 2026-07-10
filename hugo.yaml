@@ -50,7 +50,7 @@ menus:
   main:
     - identifier: Home
       name: Home
-      pageRef: /
+      pageRef: /26-the-optimizers/
       weight: 5
     - identifier: Members
       name: Members
@@ -60,8 +60,8 @@ menus:
       name: Projects
       pageRef: /project/
       weight: 20
-    - identifier: Blog
-      name: Blog
+    - identifier: Logs
+      name: Logs
       pageRef: /logs/
       weight: 30
     - identifier: Photos
@@ -70,7 +70,7 @@ menus:
       weight: 40
     - identifier: course-site
       name: Course Website
-      url: https://ucd-cosmos-data.github.io/26-the-optimizers/
+      url: https://ucd-cosmos-data.github.io/
 
 markup:
   tableOfContents:
