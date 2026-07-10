@@ -64,14 +64,23 @@ Qualities such as being in the same grade, sharing common interests, sharing the
 
 #### Evidence of Intentional Assignment
 
-Assuming three categories of sleep cycles (early birds, night owls, and intermediate), with people equally split between them, the probability that any two people share the same sleep cycle is $\frac{1}{3}.$ If COSMOS randomly assigned roommates, we would expect $21 * \frac{1}{3} = 7$ of the members to have matching sleep schedules with their roommate. However, we observed $18$ people who reported that they shared the same sleep schedule, which is statistically significant.
+Assuming three categories of sleep cycles (early birds, night owls, and intermediate) and that people are equally distributed among them, the probability that two randomly selected people share the same sleep cycle is (\frac{1}{3}). Under random roommate assignment, we would therefore expect about (21 \times \frac{1}{3} = 7) participants to report having the same sleep schedule as their roommate. Instead, (18) of the (21) participants reported sharing the same sleep schedule with their roommate. A binomial test comparing the observed proportion to the expected probability under random assignment yielded a statistically significant result ((p < 0.001)), indicating that the observed number of matching sleep schedules is far greater than would be expected by chance alone.
 
-Additionally, people with roommates in the same grade and/or similar interests, and/or the same schedule reported a higher level of satisfaction with their roommates than those who didn’t, showing that COSMOS effectively assigned roommates.
+
+<figure id="desmos_analysis" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
+    <img src="C:\Users\yi_li\OneDrive\cosmos\26-the-optimizers\content\photos\desmos.png"
+        style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
+<figcaption style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+        Figure 3 - Desmos Binomial Distribution Analysis
+    </figcaption>
+</figure>
+
+Additionally, participants who reported being in the same grade, having similar interests, and/or sharing the same sleep schedule with their roommate also reported higher levels of roommate satisfaction than those who did not. Together, these findings suggest that COSMOS's roommate assignments were associated with characteristics that contribute to positive roommate experiences, rather than appearing to be random.
 
 <figure id="roommate_rating_comparison" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
     <img src="/26-the-optimizers/project/group_survey/roommate_rating_comparison.svg"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
     <figcaption style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
-        Figure 3 - Roommate Rating Comparison by Shared Characteristics
+        Figure 4 - Roommate Rating Comparison by Shared Characteristics
     </figcaption>
 </figure>
