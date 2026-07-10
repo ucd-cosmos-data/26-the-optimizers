@@ -68,7 +68,7 @@ Assuming three categories of sleep cycles (early birds, night owls, and intermed
 
 
 <figure id="desmos_analysis" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="C:\Users\yi_li\OneDrive\cosmos\26-the-optimizers\content\photos\desmos.png"
+    <img src="\26-the-optimizers\content\photos\desmos.png"
         style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 <figcaption style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
         Figure 3 - Desmos Binomial Distribution Analysis
