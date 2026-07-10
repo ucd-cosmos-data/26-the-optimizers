@@ -1,5 +1,5 @@
 ---
-title: "Mini Project 1 - Rain and Depression Rates in California"
+title: "The Effect of Rain on Depression Rates in California"
 date: 2026-07-09
 author: "The Optimizers"
 description: "A short analysis on the relationship between precipitation and depression rates across California counties."
