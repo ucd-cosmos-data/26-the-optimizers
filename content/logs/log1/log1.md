@@ -1,5 +1,6 @@
 ---
 title: "Log #1: July 5-8"
+date: 2026-07-08
 author: "Sonia"
 ---
 
