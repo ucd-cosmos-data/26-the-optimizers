@@ -84,3 +84,7 @@ Additionally, participants who reported being in the same grade, having similar 
         Figure 4 - Roommate Rating Comparison by Shared Characteristics
     </figcaption>
 </figure>
+
+### Conclusions
+
+From our study, we can conclude that COSMOS did indeed consider the Roommate Survey which all program particapants were required to take.
