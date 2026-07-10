@@ -56,11 +56,11 @@ menus:
       name: Members
       pageRef: /members/
       weight: 10
-    - identifier: Project
+    - identifier: Projects
       name: Projects
       pageRef: /project/
       weight: 20
-    - identifier: Logs
+    - identifier: Blog
       name: Blog
       pageRef: /logs/
       weight: 30
