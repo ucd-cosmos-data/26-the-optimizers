@@ -1,0 +1,13 @@
+---
+title: "Log #2: July 9-10"
+author: "Shreyas"
+---
+
+Second half of the first week!
+
+### Thursday
+Day 4. Professeur Ding went over some pretty advanced dimensionality reduction algorithms. We finally uploaded the two studies we did to our website.
+
+### Friday
+Week 1 of COSMOS 2026 is almost over :( 
+Wonjun gave us our first quiz of the summer, and WE all aced it. 
