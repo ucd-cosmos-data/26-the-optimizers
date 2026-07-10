@@ -6,7 +6,7 @@ author: "Shreyas"
 Second half of the first week!
 
 ### Thursday
-Day 4. Professeur Ding went over some pretty advanced dimensionality reduction algorithms. We finally uploaded the two studies we did to our website.
+Day 4. Professor Ding went over some pretty advanced dimensionality reduction algorithms. We finally uploaded the two studies we did to our website.
 
 ### Friday
 Week 1 of COSMOS 2026 is almost over :(   

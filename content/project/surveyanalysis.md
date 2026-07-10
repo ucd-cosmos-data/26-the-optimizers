@@ -85,4 +85,5 @@ Additionally, participants who reported being in the same grade, having similar 
     </figcaption>
 </figure>
 
+### Conclusion
 In conclusion, the statistically significant results for sleep schedule compatibility, along with the high rates of shared interests and roommate satisfaction, suggest that COSMOS UC Davis effectively used roommate survey responses in its roommate pairing process.
