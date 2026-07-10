@@ -1,5 +1,5 @@
 ---
-title: "A Statistical Analysis - Did COSMOS Use Roommate Surveys?"
+title: "Statistical Analysis—Did COSMOS UC Davis Use Roommate Surveys?"
 date: 2026-07-09
 author: "Shreyas, "
 description: "An analysis of whether COSMOS UC Davis used roommate survey responses when assigning roommates. Conducted by Shreyas, Sonia, Sahil, Advait, and Ashley"
