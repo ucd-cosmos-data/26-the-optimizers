@@ -75,7 +75,7 @@ Assuming three categories of sleep cycles (early birds, night owls, and intermed
     </figcaption>
 </figure>
 
-Additionally, participants who reported being in the same grade, having similar interests, and/or sharing the same sleep schedule with their roommate also reported higher levels of roommate satisfaction than those who did not. Together, these findings suggest that COSMOS's roommate assignments were associated with characteristics that contribute to positive roommate experiences, rather than appearing to be random.
+Additionally, participants who reported being in the same grade, having similar interests, and/or sharing the same sleep schedule with their roommate also reported higher levels of roommate satisfaction than those who did not as shown in [Figure 4](#roommate_rating_comparison). Together, these findings suggest that COSMOS' roommate assignments were associated with characteristics that contribute to positive roommate experiences, rather than appearing to be random.
 
 <figure id="roommate_rating_comparison" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
     <img src="/26-the-optimizers/project/group_survey/roommate_rating_comparison.svg"
@@ -84,3 +84,9 @@ Additionally, participants who reported being in the same grade, having similar 
         Figure 4 - Roommate Rating Comparison by Shared Characteristics
     </figcaption>
 </figure>
+
+
+
+
+### Conclusion
+In conclusion, the statistically significant results for sleep schedule compatibility, along with the high rates of shared interests and roommate satisfaction, suggest that COSMOS UC Davis effectively used roommate survey responses in its roommate pairing process.
