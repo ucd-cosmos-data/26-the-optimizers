@@ -9,7 +9,21 @@ description: "A short analysis on the relationship between precipitation and dep
 
 We examined annual precipitation and depression rates across California’s 58 counties using choropleth maps. We then constructed a scatterplot to assess the association between the two variables.
 
-## **County maps** 
+## Guiding Question
+> *What is the correlation between depression rates and precipitation in California?*
+
+## Hypothesis
+We hypothesized that counties with greater annual precipitation totals would tend to have higher rates of depression. This came from our observation that experiencing large amounts of rain over an extended period of time tends to be depressing.
+
+## Data Acquisition
+In order to compare these two factors (precipitation and depression), we sourced data from two websites:
+- [Data.CDC.gov](https://data.cdc.gov/500-Cities-Places/PLACES-County-Data-GIS-Friendly-Format-2025-releas/i46a-9kgh/about_data)
+- [National Centers for Environmental Information](https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county)
+
+## Data Cleaning
+
+
+## County Visualization
 
 <figure id="precipitation_map" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff;">
     <iframe src="/26-the-optimizers/project/miniproject1/precipitation_choropleth.html"
@@ -31,7 +45,7 @@ We examined annual precipitation and depression rates across California’s 58 c
     </figcaption>
 </figure>
 
-## **Annual Precipitation vs Depression Rate** 
+## Annual Precipitation vs Depression Rate
 
 <figure id="scatterplot" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
     <img src="/26-the-optimizers/project/miniproject1/scatter_plot.svg"
@@ -41,7 +55,9 @@ We examined annual precipitation and depression rates across California’s 58 c
     </figcaption>
 </figure>
 
-## **Conclusion** 
+## Analysis
+
+## Conclusion
 
 Our analysis found a moderate-to-strong positive relationship between annual precipitation and depression rates across California counties. The scatterplot and regression line suggest that counties with higher precipitation tend to have higher depression rates, although there is considerable variability, indicating that precipitation is only one of many factors that may influence depression.
 
