@@ -25,7 +25,7 @@ To prepare the data for analysis, we combined the two datasets—one containing 
 
 ## County Visualization
 <figure id="precipitation_map" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff;">
-    <iframe src="/26-the-optimizers/projects/miniproject1/precipitation_choropleth.html"
+    <iframe src="https://ucd-cosmos-data.github.io/26-the-optimizers/projects/miniproject1/precipitation_choropleth.html"
     style="width: 100%; height: 600px; border: none; border-radius: 6px;"
     scrolling="no">
     </iframe>
@@ -35,7 +35,7 @@ To prepare the data for analysis, we combined the two datasets—one containing 
 </figure>
 
 <figure id="depression_map" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff;">
-    <iframe src="/26-the-optimizers/projects/miniproject1/depression_choropleth.html"
+    <iframe src="https://ucd-cosmos-data.github.io/26-the-optimizers/projects/miniproject1/depression_choropleth.html"
     style="width: 100%; height: 600px; border: none; border-radius: 6px;"
     scrolling="no">
     </iframe>
