@@ -13,7 +13,7 @@ We examined annual precipitation and depression rates across California’s 58 c
 > *What is the correlation between depression rates and precipitation in California?*
 
 ## Hypothesis
-This hypothesis was based on the idea that prolonged periods of rainfall and reduced sunlight may be associated with lower mood and higher rates of depression.
+We hypothesized that counties with greater annual precipitation totals would tend to have higher rates of depression. This hypothesis was based on the idea that prolonged periods of rainfall and reduced sunlight may be associated with lower mood and higher rates of depression.
 
 ## Data Acquisition
 In order to compare these two factors (precipitation and depression), we sourced data from two websites:
