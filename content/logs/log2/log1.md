@@ -1,5 +1,6 @@
 ---
 title: "Log #2: July 9-10"
+date: 2026-07-10
 author: "Shreyas"
 ---
 
