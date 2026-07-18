@@ -12,4 +12,4 @@ Day 4. Professor Ding went over some pretty advanced dimensionality reduction al
 ### Friday
 Week 1 of COSMOS 2026 is almost over :(   
 
-Wonjun gave us our first quiz of the summer, and WE all aced it. 
+Wonjun gave us our first quiz of the summer, and WE all aced it. Chen also gave us a preview of the possible datasets which we would be given for our final projects. We are hoping for the EEG dataset. 
