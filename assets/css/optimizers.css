@@ -67,36 +67,127 @@
   margin-top: var(--spacing-2xl);
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-xl);
+.photos-page,
+.photos-page-content {
+  width: 100%;
 }
 
-.photo-grid button {
+.photos-page-content {
+  max-width: 1200px;
+}
+
+.photo-grid-intro {
+  margin: var(--spacing-sm) 0 var(--spacing-xl);
+  color: var(--text-secondary);
+}
+
+.photo-grid {
+  columns: 4 220px;
+  column-gap: var(--spacing-lg);
+}
+
+.photo-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 var(--spacing-lg);
+  overflow: hidden;
+  break-inside: avoid;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.photo-card:hover,
+.photo-card:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.photo-card-image {
+  position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
+  border: 0;
   padding: 0;
   background: var(--bg-secondary);
   cursor: zoom-in;
 }
 
-.photo-grid img {
+.photo-card-image img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   transition: transform var(--transition-base);
 }
 
-.photo-grid button:hover img,
-.photo-grid button:focus-visible img {
-  transform: scale(1.04);
+.photo-card-favorite {
+  border-color: var(--accent-primary-rgba-05);
+}
+
+.photo-card-favorite-badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(17, 17, 17, 0.78);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.photo-card-favorite-badge span {
+  color: #ffd166;
+}
+
+.photo-card-expand {
+  position: absolute;
+  right: var(--spacing-sm);
+  bottom: var(--spacing-sm);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(17, 17, 17, 0.78);
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base);
+}
+
+.photo-card-image:hover img,
+.photo-card-image:focus-visible img {
+  transform: scale(1.025);
+}
+
+.photo-card-image:hover .photo-card-expand,
+.photo-card-image:focus-visible .photo-card-expand {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card figcaption {
+  padding: 0.8rem 0.9rem 0.95rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .photo-lightbox {
@@ -106,19 +197,51 @@
   display: none;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-xl);
-  background: rgba(0, 0, 0, 0.85);
-  cursor: zoom-out;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .photo-lightbox.active {
   display: flex;
 }
 
+.photo-lightbox figure {
+  max-width: 92vw;
+  margin: 0;
+}
+
 .photo-lightbox img {
-  max-width: 90vw;
-  max-height: 90vh;
+  display: block;
+  max-width: 92vw;
+  max-height: 80vh;
+  border-radius: 0.5rem;
   object-fit: contain;
+}
+
+.photo-lightbox figcaption {
+  max-width: 720px;
+  margin: 0.8rem auto 0;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.photo-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.photo-lightbox-open {
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
@@ -127,6 +250,22 @@
   }
 
   .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    columns: 2 140px;
+    column-gap: var(--spacing-md);
+  }
+
+  .photo-card {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .photo-card figcaption {
+    padding: 0.65rem 0.7rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .photo-card-favorite-badge {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.9rem;
   }
 }
