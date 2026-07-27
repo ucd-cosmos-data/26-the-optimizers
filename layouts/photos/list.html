@@ -1,6 +1,6 @@
 {{- define "main" }}
-  <div class="single-post-wrapper">
-    <article class="single-post">
+  <div class="single-post-wrapper photos-page">
+    <article class="single-post photos-page-content">
       <header class="post-header">
         {{ partial "breadcrumb.html" . }}
         <h1 class="post-title-main">{{ .Title }}</h1>
@@ -18,6 +18,7 @@
       {{- $exts := slice "jpg" "jpeg" "png" "gif" "webp" }}
       {{- $photoDir := "static/photos" }}
       {{- $images := slice }}
+      {{- $favorites := hugo.Data.photo_favorites | default slice }}
       {{- if os.FileExists $photoDir }}
         {{- $entries := os.ReadDir $photoDir }}
         {{- range $entries }}
@@ -30,38 +31,80 @@
         {{- end }}
       {{- end }}
 
+      {{- $orderedImages := slice }}
+      {{- range $favorites }}
+        {{- if in $images . }}
+          {{- $orderedImages = $orderedImages | append . }}
+        {{- end }}
+      {{- end }}
+      {{- range sort $images }}
+        {{- if not (in $favorites .) }}
+          {{- $orderedImages = $orderedImages | append . }}
+        {{- end }}
+      {{- end }}
+
       {{- if $images }}
-        <div class="photo-grid">
-          {{- range sort $images }}
+        <p class="photo-grid-intro">{{ len $images }} moments from our time at COSMOS. Select a photo to view it larger.</p>
+        <div class="photo-grid" aria-label="Photo gallery">
+          {{- range $orderedImages }}
             {{- $src := (printf "photos/%s" .) | relURL }}
-            <button type="button" data-full="{{ $src }}">
-              <img src="{{ $src }}" alt="{{ . }}" loading="lazy">
-            </button>
+            {{- $filename := . }}
+            {{- $title := path.BaseName . | replaceRE "[-_]+" " " | title }}
+            {{- $caption := index hugo.Data.photo_captions $filename | default (printf "Add a caption for %s." $title) }}
+            {{- $isFavorite := in $favorites $filename }}
+            <figure class="photo-card{{ if $isFavorite }} photo-card-favorite{{ end }}">
+              <button type="button" class="photo-card-image" data-full="{{ $src }}" data-caption="{{ $caption }}" aria-label="View {{ $title }} larger">
+                <img src="{{ $src }}" alt="{{ $title }}" loading="lazy">
+                {{- if $isFavorite }}
+                  <span class="photo-card-favorite-badge" aria-hidden="true"><span>★</span></span>
+                {{- end }}
+                <span class="photo-card-expand" aria-hidden="true">View</span>
+              </button>
+              <figcaption>{{ $caption }}</figcaption>
+            </figure>
           {{- end }}
         </div>
-        <div class="photo-lightbox" id="photo-lightbox">
-          <img id="photo-lightbox-img" src="" alt="">
+        <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Expanded photo" aria-hidden="true">
+          <button class="photo-lightbox-close" type="button" aria-label="Close expanded photo">&times;</button>
+          <figure>
+            <img id="photo-lightbox-img" src="" alt="">
+            <figcaption id="photo-lightbox-caption"></figcaption>
+          </figure>
         </div>
         <script>
           (function () {
             var lightbox = document.getElementById("photo-lightbox");
             var lightboxImg = document.getElementById("photo-lightbox-img");
-            document.querySelectorAll(".photo-grid button").forEach(function (btn) {
+            var lightboxCaption = document.getElementById("photo-lightbox-caption");
+            var closeButton = lightbox.querySelector(".photo-lightbox-close");
+            var activeButton = null;
+
+            function closeLightbox() {
+              lightbox.classList.remove("active");
+              lightbox.setAttribute("aria-hidden", "true");
+              lightboxImg.src = "";
+              lightboxCaption.textContent = "";
+              document.body.classList.remove("photo-lightbox-open");
+              if (activeButton) activeButton.focus();
+            }
+
+            document.querySelectorAll(".photo-card-image").forEach(function (btn) {
               btn.addEventListener("click", function () {
+                activeButton = btn;
                 lightboxImg.src = btn.getAttribute("data-full");
                 lightboxImg.alt = btn.querySelector("img").alt;
+                lightboxCaption.textContent = btn.getAttribute("data-caption");
                 lightbox.classList.add("active");
+                lightbox.setAttribute("aria-hidden", "false");
+                document.body.classList.add("photo-lightbox-open");
+                closeButton.focus();
               });
             });
-            lightbox.addEventListener("click", function () {
-              lightbox.classList.remove("active");
-              lightboxImg.src = "";
+            lightbox.addEventListener("click", function (event) {
+              if (event.target === lightbox || event.target === closeButton) closeLightbox();
             });
             document.addEventListener("keydown", function (e) {
-              if (e.key === "Escape") {
-                lightbox.classList.remove("active");
-                lightboxImg.src = "";
-              }
+              if (e.key === "Escape" && lightbox.classList.contains("active")) closeLightbox();
             });
           })();
         </script>
