@@ -20,5 +20,5 @@ Arriving at the stands of the baseball game, we watched the Oakland A's face off
 
 ### Sunday
 
-Sunday was a day of rest and recovery. We visited downtown, enjoyed local foods, and explored Davis' culture. 
+Sunday was a day of rest and recovery. We biked downtown, enjoyed local foods, and explored Davis' culture. We thrifted for the first time, and visited the Craft & Vintage Fair.
 
