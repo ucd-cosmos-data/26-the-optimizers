@@ -8,11 +8,11 @@ Second half of the second week (and the weekend)!
 
 ### Thursday
 
-Our field trip to Cal Academy in San Francisco was straight out of a movie. Our first stop was the Planetarium, where we watched a mindblowing 360 degree screen video about meteors
+Our field trip to Cal Academy in San Francisco was straight out of a movie. Our first stop was the Planetarium, where we watched a mindblowing 360 degree screen video about meteors. We then explored the indoor rainforest dome, where exotic plants bloomed and butterflies flitted about. 
 
 ### Friday
 
-case studies 
+TF Chen led us through a series of case studies of various datasets, where we conducted exploratory dataset analysis. TA Wonjun also taught us about the math behind Principal Component Analysis, a method used to reduce dimensionality on datasets. We also learned about eigenvalues and eigenvectors.
 
 ### Saturday
 
@@ -20,6 +20,5 @@ Arriving at the stands of the baseball game, we watched the Oakland A's face off
 
 ### Sunday
 
-chill day went down town
-
+Sunday was a day of rest and recovery. We visited downtown, enjoyed local foods, and explored Davis' culture. 
 
