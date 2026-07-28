@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project on The Optimizers</title><link>https://ucd-cosmos-data.github.io/26-the-optimizers/project/</link><description>Recent content in Project on The Optimizers</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 26 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ucd-cosmos-data.github.io/26-the-optimizers/project/index.xml" rel="self" type="application/rss+xml"/><item><title>Preictal Scalp-EEG Relative Power Before Seizure Onset</title><link>https://ucd-cosmos-data.github.io/26-the-optimizers/project/finalproject/</link><pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate><guid>https://ucd-cosmos-data.github.io/26-the-optimizers/project/finalproject/</guid><description>&lt;div style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;"&gt;
+&lt;h2 id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This project investigates whether the spectral composition of scalp electroencephalography (EEG) changes reliably in the minute before electrographic seizure onset. We will measure delta, theta, alpha, beta, and gamma &lt;strong&gt;relative power&lt;/strong&gt; in the final 60 seconds before each annotated seizure and compare those values with patient-matched interictal EEG. The analysis focuses on three properties of each band: when its change begins, how large the change is, and how consistently its direction and timing recur across seizures and patients. In particular, we test whether beta- and gamma-band changes are more consistent preictal markers than lower-frequency changes.&lt;/p&gt;</description></item><item><title>California Real Estate Market Segmentation Using K-Means Clustering</title><link>https://ucd-cosmos-data.github.io/26-the-optimizers/project/miniproject2/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://ucd-cosmos-data.github.io/26-the-optimizers/project/miniproject2/</guid><description>&lt;h1 id="methodology"&gt;&lt;strong&gt;Methodology&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id="purpose-of-k-means-clustering"&gt;&lt;strong&gt;Purpose of K-Means Clustering&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The purpose of K-means clustering in this analysis is to automatically group California block groups into distinct real-estate regions. By looking at both geographic coordinates (latitude and longitude) and home values, the algorithm uncovers natural boundaries where geography and market value overlap, helping us map out the state&amp;rsquo;s distinct regional economies.&lt;/p&gt;
+&lt;h2 id="data-structure"&gt;&lt;strong&gt;Data Structure&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The algorithm operates on a numerical matrix of shape $N \times D$:&lt;/p&gt;</description></item><item><title>Statistical Analysis—Did COSMOS UC Davis Use Roommate Survey Responses?</title><link>https://ucd-cosmos-data.github.io/26-the-optimizers/project/surveyanalysis/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate><guid>https://ucd-cosmos-data.github.io/26-the-optimizers/project/surveyanalysis/</guid><description>&lt;h2 id="roommate-surveys-were-taken-into-consideration-at-cosmos-uc-davis"&gt;Roommate Surveys Were Taken Into Consideration at COSMOS UC Davis&lt;/h2&gt;
+&lt;h3 id="methodology"&gt;Methodology&lt;/h3&gt;
+&lt;p&gt;Our study was conducted on the members of the 2026 COSMOS Cluster 11 at UC Davis. We claim that UC Davis COSMOS assigned students with roommates from another cluster, implying that none of the members of our study are roommates with each other. The questions on our survey were all directly asked on the COSMOS Roommate survey. Our data was acquired and cleaned manually.&lt;/p&gt;</description></item><item><title>The Effect of Rain on Depression Rates in California</title><link>https://ucd-cosmos-data.github.io/26-the-optimizers/project/miniproject1/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate><guid>https://ucd-cosmos-data.github.io/26-the-optimizers/project/miniproject1/</guid><description>&lt;div style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;"&gt;
+&lt;p&gt;We examined annual precipitation and depression rates across California’s 58 counties using choropleth maps. We then constructed a scatterplot to assess the association between the two variables.&lt;/p&gt;
+&lt;h2 id="guiding-question"&gt;Guiding Question&lt;/h2&gt;
+
+
+
+
+
+
+
+
+&lt;blockquote class="blockquote-regular"&gt;
+ &lt;p&gt;&lt;em&gt;What is the correlation between depression rates and precipitation in California?&lt;/em&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2 id="hypothesis"&gt;Hypothesis&lt;/h2&gt;
+&lt;p&gt;We hypothesized that counties with greater annual precipitation totals would tend to have higher rates of depression. This hypothesis was based on the idea that prolonged periods of rainfall and reduced sunlight may be associated with lower mood and higher rates of depression.&lt;/p&gt;</description></item></channel></rss>

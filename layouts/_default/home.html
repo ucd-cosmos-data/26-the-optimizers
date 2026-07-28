@@ -1,74 +1,129 @@
 {{ define "main" }}
-  <section class="hero-section">
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            {{ if site.Params.heroTitleLine1 }}
-              <span class="hero-title-line1">{{ site.Params.heroTitleLine1 }}</span>
-            {{ else }}
-              <span class="hero-title-line1">{{ site.Title }}</span>
-            {{ end }}
-            {{ if site.Params.heroTitleLine2 }}
-              <span class="hero-title-line2">{{ site.Params.heroTitleLine2 }}</span>
-            {{ end }}
+  <div class="neuro-home">
+    <section class="neuro-hero" aria-labelledby="neuro-title">
+      <div class="neuro-grid" aria-hidden="true"></div>
+
+      <div class="neuro-statusbar" aria-label="System status">
+        <span class="neuro-statusbar-brand"><i></i> OPTIMIZERS / COGNITIVE SYSTEMS</span>
+        <span class="neuro-statusbar-reading">SIGNAL <strong id="neuro-status-top">STABLE</strong></span>
+      </div>
+
+      <div class="neuro-hero-layout">
+        <div class="neuro-copy">
+          <p class="neuro-kicker"><span>01</span> Data science, wired differently</p>
+          <h1 id="neuro-title">
+            <span>Where data</span>
+            <span class="neuro-title-accent">learns to think.</span>
           </h1>
-          {{ if site.Params.description }}
-            <p class="hero-subtitle">&gt; {{ site.Params.description }}</p>
-          {{ end }}
-          {{ if site.Params.social }}
-            <div class="hero-social">
-              {{ partial "social-links.html" . }}
-            </div>
-          {{ end }}
+          <p class="neuro-lede">
+            We are The Optimizers—a COSMOS team turning noisy observations into
+            clear, testable ideas through analysis, iteration, and curiosity.
+          </p>
+          <div class="neuro-actions">
+            <a class="neuro-primary-action" href="{{ "project/" | relURL }}">
+              Enter the lab
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a class="neuro-text-action" href="{{ "members/" | relURL }}">Meet the minds <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="hero-image">
-          {{ $avatarUrl := site.Params.avatar.home.url | default site.Params.avatar.url }}
-          {{ $avatarAsset := site.Params.avatar.home.assetPath | default site.Params.avatar.assetPath }}
-          {{ $enableResize := site.Params.avatar.home.enableResize | default site.Params.avatar.enableResize | default false }}
 
-          {{ if $avatarUrl }}
-            <img src="{{ $avatarUrl }}" alt="{{ site.Title }}" class="hero-logo">
-          {{ else if $avatarAsset }}
-            {{ with resources.Get $avatarAsset }}
-              {{ if $enableResize }}
-                {{ with .Resize "512x" }}
-                  <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
-                {{ end }}
-              {{ else }}
-                <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
-              {{ end }}
-            {{ end }}
-          {{ end }}
+        <div class="neuro-visual neuro-game" aria-label="Synapse Sprint neuron connection game">
+          <div class="neuro-visual-label">SYNAPSE SPRINT</div>
+          <div class="neuro-game-hud" aria-label="Game statistics">
+            <span>SCORE <strong id="neuro-score">000</strong></span>
+            <span>TIME <strong id="neuro-timer">30.0</strong></span>
+          </div>
+          <canvas
+            id="neuro-canvas"
+            tabindex="0"
+            role="application"
+            aria-label="Neuron network. Start the game, then catch two nearby neurons before they fade to connect them. Use the pointer, or arrow keys and Enter.">
+          </canvas>
+          <svg class="neuro-brain-fallback" viewBox="0 0 600 500" aria-hidden="true">
+            <path d="M302 80C253 36 177 57 161 116c-49 4-78 59-52 101-42 27-35 92 10 109-9 55 44 100 93 76 20 44 82 47 105 8 34 33 93 16 100-31 51-6 75-66 41-102 34-39 9-102-40-105-8-59-75-84-116-47Z"/>
+            <path d="M302 82v326M211 119c65 34 49 84 91 102m-174-1c54-9 83 16 90 61m-91 46c59-25 92-6 110 40m181-241c-56 16-80 49-80 94m117 55c-48-18-87 4-99 48m61 55c-47-26-77-11-100 32"/>
+          </svg>
+          <div class="neuro-game-instructions" id="neuro-game-instructions">
+            Catch each neural pulse and connect it before it fades.
+          </div>
+          <button class="optimize-button" id="optimize-button" type="button">
+            <span class="optimize-button-core" aria-hidden="true"></span>
+            <span>
+              <strong class="optimize-button-label">START GAME</strong>
+              <small class="optimize-button-hint">30 SECOND SPRINT</small>
+            </span>
+          </button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="home-container">
-    <section class="posts-section">
-      <h2 class="posts-title">Explore</h2>
-      <p class="optimizers-home-intro">
-        Project notes, team profiles, working logs, and photos from The Optimizers.
-      </p>
-      <div class="optimizers-section-grid">
-        <a class="optimizers-section-card" href="{{ "members/" | relURL }}">
-          <span class="optimizers-section-card-title">Members</span>
-          <span class="optimizers-section-card-text">Meet the team behind the project.</span>
+      <div class="neuro-sequence" aria-label="Optimization sequence">
+        <button type="button" class="is-active" data-sequence-jump="0" aria-current="step">
+          <span>01</span><strong>Observe</strong><small>Find the signal</small>
+        </button>
+        <button type="button" data-sequence-jump="1">
+          <span>02</span><strong>Model</strong><small>Map the pattern</small>
+        </button>
+        <button type="button" data-sequence-jump="2">
+          <span>03</span><strong>Optimize</strong><small>Refine the answer</small>
+        </button>
+        <p id="neuro-status" aria-live="polite">Select start game to play</p>
+      </div>
+    </section>
+
+    <section class="neuro-explore" aria-labelledby="explore-title">
+      <div class="neuro-section-heading" data-neuro-reveal>
+        <div>
+          <p class="neuro-kicker"><span>02</span> Explore the cortex</p>
+          <h2 id="explore-title">Four lobes. One shared mind.</h2>
+        </div>
+        <p>Every part of the project connects—people, analysis, process, and the moments in between.</p>
+      </div>
+
+      <div class="neuro-card-grid">
+        <a class="neuro-card" href="{{ "members/" | relURL }}" data-neuro-reveal>
+          <span class="neuro-card-index">A / 01</span>
+          <span class="neuro-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="15" cy="18" r="6"/><circle cx="33" cy="18" r="6"/><path d="M5 39c1-8 5-12 10-12s9 4 10 12M23 39c1-8 5-12 10-12s9 4 10 12M20 20h8"/></svg>
+          </span>
+          <strong>Members</strong>
+          <span>Meet the five minds behind the models.</span>
+          <i>Team network →</i>
         </a>
-        <a class="optimizers-section-card" href="{{ "project/" | relURL }}">
-          <span class="optimizers-section-card-title">Project</span>
-          <span class="optimizers-section-card-text">Follow the main project work.</span>
+        <a class="neuro-card" href="{{ "project/" | relURL }}" data-neuro-reveal>
+          <span class="neuro-card-index">B / 02</span>
+          <span class="neuro-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M7 37 18 25l8 6 15-20M7 11v26h34"/><circle cx="18" cy="25" r="2"/><circle cx="26" cy="31" r="2"/><circle cx="41" cy="11" r="2"/></svg>
+          </span>
+          <strong>Projects</strong>
+          <span>Trace our questions from raw data to insight.</span>
+          <i>Research archive →</i>
         </a>
-        <a class="optimizers-section-card" href="{{ "logs/" | relURL }}">
-          <span class="optimizers-section-card-title">Logs</span>
-          <span class="optimizers-section-card-text">Read progress updates and notes.</span>
+        <a class="neuro-card" href="{{ "logs/" | relURL }}" data-neuro-reveal>
+          <span class="neuro-card-index">C / 03</span>
+          <span class="neuro-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M11 7h26v34H11zM17 16h14M17 23h14M17 30h9"/><path d="M7 12h4M7 20h4M7 28h4M7 36h4"/></svg>
+          </span>
+          <strong>Lab logs</strong>
+          <span>Follow the experiments, pivots, and progress.</span>
+          <i>Process notes →</i>
         </a>
-        <a class="optimizers-section-card" href="{{ "photos/" | relURL }}">
-          <span class="optimizers-section-card-title">Photos</span>
-          <span class="optimizers-section-card-text">Browse the project photo gallery.</span>
+        <a class="neuro-card" href="{{ "photos/" | relURL }}" data-neuro-reveal>
+          <span class="neuro-card-index">D / 04</span>
+          <span class="neuro-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M6 12h36v27H6zM13 12l3-5h16l3 5"/><circle cx="24" cy="25" r="8"/><circle cx="37" cy="17" r="2"/></svg>
+          </span>
+          <strong>Field notes</strong>
+          <span>See the human moments behind the work.</span>
+          <i>Photo signals →</i>
         </a>
       </div>
+    </section>
+
+    <section class="neuro-manifesto" data-neuro-reveal>
+      <p>THE OPTIMIZERS’ PRINCIPLE</p>
+      <blockquote>Better questions create <em>stronger connections.</em></blockquote>
+      <a href="https://github.com/ucd-cosmos-data/26-the-optimizers">View our source on GitHub <span aria-hidden="true">↗</span></a>
     </section>
   </div>
 {{ end }}

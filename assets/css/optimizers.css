@@ -1,23 +1,717 @@
-:root,
-[data-theme="light"] {
-  --accent-primary: #FE347E;
-  --accent-mid-purple: #ff5f99;
-  --accent-light-purple: #ff9abd;
-  --accent-hover: #ff5f99;
-  --accent-primary-rgba-03: rgba(254, 52, 126, 0.3);
-  --accent-primary-rgba-05: rgba(254, 52, 126, 0.5);
-  --accent-light-purple-rgba-01: rgba(255, 154, 189, 0.1);
-  --accent-light-purple-rgba-03: rgba(255, 154, 189, 0.3);
-  --accent-mid-purple-rgba-05: rgba(255, 95, 153, 0.05);
-  --accent-mid-purple-rgba-01: rgba(255, 95, 153, 0.1);
-  --accent-mid-purple-rgba-02: rgba(255, 95, 153, 0.2);
-  --tag-bg: rgba(254, 52, 126, 0.1);
-  --tag-color: var(--accent-primary);
+:root {
+  --neuro-ink: #050816;
+  --neuro-panel: rgba(11, 19, 40, 0.72);
+  --neuro-cyan: #64f5e5;
+  --neuro-blue: #70a8ff;
+  --neuro-violet: #a98bff;
+  --neuro-line: rgba(123, 171, 255, 0.18);
+  --accent-primary: #64f5e5;
+  --accent-mid-purple: #70a8ff;
+  --accent-light-purple: #a98bff;
+  --accent-hover: #98fff3;
+  --accent-primary-rgba-03: rgba(100, 245, 229, 0.3);
+  --accent-primary-rgba-05: rgba(100, 245, 229, 0.5);
+  --accent-light-purple-rgba-01: rgba(169, 139, 255, 0.1);
+  --accent-light-purple-rgba-03: rgba(169, 139, 255, 0.3);
+  --accent-mid-purple-rgba-05: rgba(112, 168, 255, 0.05);
+  --accent-mid-purple-rgba-01: rgba(112, 168, 255, 0.1);
+  --accent-mid-purple-rgba-02: rgba(112, 168, 255, 0.2);
+  --tag-bg: rgba(100, 245, 229, 0.1);
+  --tag-color: var(--neuro-cyan);
 }
 
-.optimizers-home-intro {
+[data-theme="light"] {
+  --neuro-ink: #eef4ff;
+  --neuro-panel: rgba(255, 255, 255, 0.76);
+  --neuro-cyan: #087f79;
+  --neuro-blue: #2869c7;
+  --neuro-violet: #7351c7;
+  --neuro-line: rgba(30, 83, 149, 0.17);
+  --accent-primary: #087f79;
+  --accent-mid-purple: #2869c7;
+  --accent-light-purple: #7351c7;
+  --accent-hover: #066761;
+  --accent-primary-rgba-03: rgba(8, 127, 121, 0.3);
+  --accent-primary-rgba-05: rgba(8, 127, 121, 0.5);
+  --tag-bg: rgba(8, 127, 121, 0.1);
+  --tag-color: #066761;
+}
+
+body {
+  background-color: var(--neuro-ink);
+  background-image:
+    radial-gradient(circle at 78% 12%, rgba(89, 80, 210, 0.17), transparent 28rem),
+    radial-gradient(circle at 12% 55%, rgba(33, 152, 180, 0.1), transparent 34rem),
+    linear-gradient(180deg, var(--neuro-ink), #070b19 70%, #050713);
+}
+
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(circle at 78% 12%, rgba(113, 87, 211, 0.13), transparent 28rem),
+    radial-gradient(circle at 12% 55%, rgba(53, 174, 174, 0.1), transparent 34rem),
+    linear-gradient(180deg, #f5f8ff, #edf4ff);
+}
+
+body::before {
+  opacity: 0.025;
+}
+
+.sticky-header {
+  border-bottom-color: var(--neuro-line);
+  background: rgba(5, 8, 22, 0.78);
+}
+
+[data-theme="light"] .sticky-header {
+  background: rgba(244, 248, 255, 0.82);
+}
+
+.header-logo .logo-link {
+  letter-spacing: -0.03em;
+}
+
+.header-logo .logo-link::before {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.6rem;
+  border: 1px solid var(--neuro-cyan);
+  border-radius: 50%;
+  background: var(--neuro-cyan);
+  box-shadow: 0 0 0 4px rgba(100, 245, 229, 0.1), 0 0 18px var(--neuro-cyan);
+}
+
+.menu-link {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+main:has(.neuro-home) {
+  max-width: none;
+  padding: 0;
+}
+
+.neuro-home {
+  --scroll-phase: 0;
+  position: relative;
+  color: var(--text-primary);
+  overflow: clip;
+}
+
+.neuro-hero {
+  position: relative;
+  min-height: 1080px;
+  padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem) 3rem;
+  border-bottom: 1px solid var(--neuro-line);
+}
+
+.neuro-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(var(--neuro-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--neuro-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 86%);
+  pointer-events: none;
+}
+
+.neuro-statusbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--neuro-line);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+}
+
+.neuro-statusbar-brand i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.6rem;
+  border-radius: 50%;
+  background: var(--neuro-cyan);
+  box-shadow: 0 0 12px var(--neuro-cyan);
+  animation: neuro-blink 2s ease-in-out infinite;
+}
+
+.neuro-statusbar-reading strong {
+  color: var(--neuro-cyan);
+  font-weight: 500;
+}
+
+.neuro-hero-layout {
+  position: sticky;
+  z-index: 1;
+  top: 7rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 7rem);
+  max-width: 1320px;
+  min-height: calc(100vh - 11rem);
+  margin: 0 auto;
+}
+
+.neuro-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.4rem;
+  color: var(--neuro-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.neuro-kicker span {
+  color: var(--text-muted);
+}
+
+.neuro-copy h1 {
+  max-width: 760px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(3.4rem, 7.1vw, 7.3rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.84;
+}
+
+.neuro-copy {
+  min-width: 0;
+}
+
+.neuro-copy h1 > span {
+  display: block;
+}
+
+.neuro-title-accent {
+  padding-bottom: 0.1em;
+  color: transparent;
+  background: linear-gradient(100deg, var(--neuro-cyan), var(--neuro-blue) 50%, var(--neuro-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.neuro-lede {
+  max-width: 610px;
+  margin: 2rem 0 0;
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.75;
+}
+
+.neuro-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.neuro-primary-action,
+.neuro-text-action {
+  text-decoration: none;
+}
+
+.neuro-primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 180px;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--neuro-cyan);
+  color: #061316;
+  background: var(--neuro-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 28px rgba(100, 245, 229, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.neuro-primary-action:hover {
+  color: #061316;
+  transform: translateY(-2px);
+  box-shadow: 0 0 38px rgba(100, 245, 229, 0.25);
+}
+
+.neuro-text-action {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.neuro-text-action:hover {
+  color: var(--neuro-cyan);
+}
+
+.neuro-visual {
+  position: relative;
+  min-height: 570px;
+  border: 1px solid var(--neuro-line);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(78, 119, 221, 0.1), transparent 53%),
+    rgba(7, 12, 29, 0.42);
+  box-shadow: inset 0 0 80px rgba(49, 109, 191, 0.07);
+  clip-path: polygon(0 22px, 22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+}
+
+[data-theme="light"] .neuro-visual {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(78, 119, 221, 0.12), transparent 53%),
+    rgba(255, 255, 255, 0.5);
+}
+
+.neuro-visual::before,
+.neuro-visual::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 54px;
+  height: 1px;
+  background: var(--neuro-cyan);
+}
+
+.neuro-visual::before { top: 0; left: 22px; }
+.neuro-visual::after { right: 22px; bottom: 0; }
+
+#neuro-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+
+#neuro-canvas.is-targeting {
+  cursor: pointer;
+}
+
+#neuro-canvas:focus-visible {
+  outline: 2px solid var(--neuro-cyan);
+  outline-offset: -5px;
+}
+
+.neuro-brain-fallback {
+  position: absolute;
+  inset: 12% 8%;
+  width: 84%;
+  height: 76%;
+  fill: none;
+  stroke: var(--neuro-blue);
+  stroke-width: 1.2;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.neuro-visual-label,
+.neuro-coordinate,
+.neuro-game-hud,
+.neuro-game-instructions {
+  position: absolute;
+  z-index: 4;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  letter-spacing: 0.13em;
+}
+
+.neuro-visual-label {
+  top: 1.25rem;
+  left: 1.25rem;
+  color: var(--neuro-cyan);
+}
+
+.neuro-coordinate-a { top: 1.25rem; right: 1.25rem; }
+.neuro-coordinate-b { right: 1.25rem; bottom: 1.25rem; }
+
+.neuro-game-hud {
+  top: 1.1rem;
+  right: 1.2rem;
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--neuro-line);
+  background: rgba(5, 10, 25, 0.56);
+  pointer-events: none;
+}
+
+[data-theme="light"] .neuro-game-hud {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.neuro-game-hud span {
+  color: var(--text-muted);
+}
+
+.neuro-game-hud strong {
+  margin-left: 0.3rem;
+  color: var(--neuro-cyan);
+  font-weight: 600;
+}
+
+.neuro-game-hud strong.is-warning {
+  color: #ff6f91;
+  animation: neuro-blink 0.55s ease-in-out infinite;
+}
+
+.neuro-game-instructions {
+  right: 1.25rem;
+  bottom: 1.2rem;
+  left: 1.25rem;
+  max-width: 330px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  pointer-events: none;
+}
+
+.optimize-button {
+  position: absolute;
+  z-index: 5;
+  right: 1.25rem;
+  bottom: 3.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--neuro-line);
+  color: var(--text-primary);
+  background: rgba(5, 10, 25, 0.72);
+  font-family: var(--font-mono);
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .optimize-button { background: rgba(255, 255, 255, 0.78); }
+
+.optimize-button-core {
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1px solid var(--neuro-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--neuro-cyan);
+}
+
+.optimize-button strong,
+.optimize-button small {
+  display: block;
+}
+
+.optimize-button strong {
+  color: var(--neuro-cyan);
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+}
+
+.optimize-button small {
+  margin-top: 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.48rem;
+  letter-spacing: 0.09em;
+}
+
+.optimize-button:hover,
+.optimize-button:focus-visible,
+.optimize-button.is-optimized {
+  border-color: var(--neuro-cyan);
+}
+
+.neuro-game.is-playing {
+  border-color: rgba(100, 245, 229, 0.5);
+}
+
+.optimize-button.is-optimized .optimize-button-core {
+  background: var(--neuro-cyan);
+  animation: neuro-pulse 0.8s ease-in-out infinite;
+}
+
+.neuro-sequence {
+  position: absolute;
+  z-index: 3;
+  right: clamp(1.25rem, 4vw, 4.5rem);
+  bottom: 2rem;
+  left: clamp(1.25rem, 4vw, 4.5rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) minmax(180px, 0.7fr);
+  max-width: 1320px;
+  margin: 0 auto;
+  border-top: 1px solid var(--neuro-line);
+}
+
+.neuro-sequence button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 0.8rem;
+  padding: 1rem 1.2rem;
+  border: 0;
+  border-right: 1px solid var(--neuro-line);
+  color: var(--text-muted);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.neuro-sequence button > span {
+  grid-row: 1 / 3;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.neuro-sequence button strong {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.neuro-sequence button small {
+  font-size: 0.7rem;
+}
+
+.neuro-sequence button.is-active strong,
+.neuro-sequence button:hover strong {
+  color: var(--neuro-cyan);
+}
+
+.neuro-sequence p {
+  align-self: center;
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+.neuro-explore {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 4vw, 4.5rem);
+}
+
+.neuro-section-heading {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+
+.neuro-section-heading h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 5.2rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.neuro-section-heading > p {
+  max-width: 390px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.neuro-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--neuro-line);
+  border-left: 1px solid var(--neuro-line);
+}
+
+.neuro-card {
+  position: relative;
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  padding: 1.4rem;
+  border-right: 1px solid var(--neuro-line);
+  border-bottom: 1px solid var(--neuro-line);
+  color: var(--text-primary);
+  background: linear-gradient(180deg, transparent, rgba(85, 125, 209, 0.035));
+  text-decoration: none;
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.neuro-card::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neuro-cyan), var(--neuro-violet));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.neuro-card:hover {
+  color: var(--text-primary);
+  background: rgba(83, 133, 216, 0.08);
+  transform: translateY(-5px);
+}
+
+.neuro-card:hover::after { transform: scaleX(1); }
+
+.neuro-card-index {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.neuro-card-icon {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  margin: 3.2rem 0 2.2rem;
+  place-items: center;
+  border: 1px solid var(--neuro-line);
+  border-radius: 50%;
+  color: var(--neuro-cyan);
+}
+
+.neuro-card-icon svg {
+  width: 35px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+}
+
+.neuro-card strong {
+  margin-bottom: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+}
+
+.neuro-card > span:not(.neuro-card-index):not(.neuro-card-icon) {
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+.neuro-card i {
+  margin-top: auto;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.neuro-card:hover i { color: var(--neuro-cyan); }
+
+.neuro-manifesto {
+  display: grid;
+  min-height: 450px;
+  place-items: center;
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--neuro-line);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(82, 93, 209, 0.14), transparent 42%),
+    linear-gradient(90deg, transparent 49.9%, var(--neuro-line) 50%, transparent 50.1%);
+  text-align: center;
+}
+
+.neuro-manifesto p {
+  margin: 0;
+  color: var(--neuro-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+}
+
+.neuro-manifesto blockquote {
+  max-width: 980px;
+  margin: 1.5rem 0;
+  border: 0;
+  padding: 0;
+  color: var(--text-primary);
+  background: none;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 5.4rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.neuro-manifesto em {
+  color: var(--neuro-violet);
+  font-style: normal;
+}
+
+.neuro-manifesto a {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.neuro-manifesto a:hover { color: var(--neuro-cyan); }
+
+[data-neuro-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+[data-neuro-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neuro-card:nth-child(2) { transition-delay: 80ms; }
+.neuro-card:nth-child(3) { transition-delay: 160ms; }
+.neuro-card:nth-child(4) { transition-delay: 240ms; }
+
+/* Carry the neural visual system through internal pages. */
+.single-post,
+.post-card,
+.photo-card {
+  border-color: var(--neuro-line);
+}
+
+.single-post {
+  position: relative;
+}
+
+.post-title-main,
+.posts-title {
+  letter-spacing: -0.04em;
+}
+
+.post-title-main::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, var(--neuro-cyan), var(--neuro-violet));
+  box-shadow: 0 0 14px rgba(100, 245, 229, 0.35);
 }
 
 .optimizers-section-grid {
@@ -30,242 +724,102 @@
   display: block;
   min-height: 150px;
   padding: var(--spacing-lg);
+  border: 1px solid var(--neuro-line);
   color: var(--text-primary);
+  background: var(--neuro-panel);
   text-decoration: none;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
 }
 
-.optimizers-section-card:hover,
-.optimizers-section-card:focus-visible {
-  border-color: var(--accent-primary);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.optimizers-section-card-title {
-  display: block;
-  margin-bottom: var(--spacing-sm);
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.optimizers-section-card-text {
-  display: block;
-  color: var(--text-secondary);
-}
-
-.optimizers-section-list {
-  margin-top: var(--spacing-2xl);
-}
+.optimizers-section-card:hover { border-color: var(--neuro-cyan); }
+.optimizers-section-card-title { display: block; font-family: var(--font-heading); font-size: 1.25rem; }
+.optimizers-section-card-text { display: block; margin-top: 0.5rem; color: var(--text-secondary); }
+.optimizers-section-list { margin-top: var(--spacing-2xl); }
 
 .photos-page,
-.photos-page-content {
-  width: 100%;
-}
+.photos-page-content { width: 100%; }
+.photos-page-content { max-width: 1200px; }
+.photo-grid-intro { margin: var(--spacing-sm) 0 var(--spacing-xl); color: var(--text-secondary); }
+.photo-grid { columns: 4 220px; column-gap: var(--spacing-lg); }
+.photo-card { display: inline-block; width: 100%; margin: 0 0 var(--spacing-lg); overflow: hidden; break-inside: avoid; border: 1px solid var(--neuro-line); border-radius: 0.35rem; background: var(--neuro-panel); }
+.photo-card-image { position: relative; display: block; width: 100%; overflow: hidden; border: 0; padding: 0; background: var(--bg-secondary); cursor: zoom-in; }
+.photo-card-image img { display: block; width: 100%; height: auto; transition: transform var(--transition-base); }
+.photo-card-favorite { border-color: var(--accent-primary-rgba-05); }
+.photo-card-favorite-badge { position: absolute; top: var(--spacing-sm); left: var(--spacing-sm); display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; color: #ffd166; background: rgba(5,8,22,.78); }
+.photo-card-expand { position: absolute; right: var(--spacing-sm); bottom: var(--spacing-sm); padding: .3rem .65rem; color: #061316; background: var(--neuro-cyan); font-family: var(--font-mono); font-size: .65rem; font-weight: 700; opacity: 0; transform: translateY(4px); transition: opacity var(--transition-base), transform var(--transition-base); }
+.photo-card-image:hover img, .photo-card-image:focus-visible img { transform: scale(1.025); }
+.photo-card-image:hover .photo-card-expand, .photo-card-image:focus-visible .photo-card-expand { opacity: 1; transform: translateY(0); }
+.photo-card figcaption { padding: .8rem .9rem .95rem; color: var(--text-secondary); font-size: .9rem; line-height: 1.5; }
+.photo-lightbox { position: fixed; inset: 0; z-index: 999; display: none; align-items: center; justify-content: center; padding: clamp(1rem,4vw,3rem); background: rgba(0,0,0,.92); }
+.photo-lightbox.active { display: flex; }
+.photo-lightbox figure { max-width: 92vw; margin: 0; }
+.photo-lightbox img { display: block; max-width: 92vw; max-height: 80vh; border-radius: .25rem; object-fit: contain; }
+.photo-lightbox figcaption { max-width: 720px; margin: .8rem auto 0; color: #f5f5f5; text-align: center; }
+.photo-lightbox-close { position: fixed; top: 1rem; right: 1rem; width: 2.75rem; height: 2.75rem; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: #fff; background: rgba(0,0,0,.45); font-size: 1.8rem; cursor: pointer; }
+.photo-lightbox-open { overflow: hidden; }
 
-.photos-page-content {
-  max-width: 1200px;
-}
+@keyframes neuro-blink { 50% { opacity: 0.35; } }
+@keyframes neuro-pulse { 50% { box-shadow: 0 0 24px var(--neuro-cyan); transform: scale(1.2); } }
 
-.photo-grid-intro {
-  margin: var(--spacing-sm) 0 var(--spacing-xl);
-  color: var(--text-secondary);
-}
-
-.photo-grid {
-  columns: 4 220px;
-  column-gap: var(--spacing-lg);
-}
-
-.photo-card {
-  display: inline-block;
-  width: 100%;
-  margin: 0 0 var(--spacing-lg);
-  overflow: hidden;
-  break-inside: avoid;
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  background: var(--bg-secondary);
-  box-shadow: var(--shadow-sm);
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
-}
-
-.photo-card:hover,
-.photo-card:focus-within {
-  border-color: var(--accent-primary);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.photo-card-image {
-  position: relative;
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  background: var(--bg-secondary);
-  cursor: zoom-in;
-}
-
-.photo-card-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform var(--transition-base);
-}
-
-.photo-card-favorite {
-  border-color: var(--accent-primary-rgba-05);
-}
-
-.photo-card-favorite-badge {
-  position: absolute;
-  top: var(--spacing-sm);
-  left: var(--spacing-sm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(17, 17, 17, 0.78);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.photo-card-favorite-badge span {
-  color: #ffd166;
-}
-
-.photo-card-expand {
-  position: absolute;
-  right: var(--spacing-sm);
-  bottom: var(--spacing-sm);
-  padding: 0.3rem 0.65rem;
-  border-radius: 999px;
-  color: #fff;
-  background: rgba(17, 17, 17, 0.78);
-  font-size: 0.75rem;
-  font-weight: 700;
-  opacity: 0;
-  transform: translateY(4px);
-  transition:
-    opacity var(--transition-base),
-    transform var(--transition-base);
-}
-
-.photo-card-image:hover img,
-.photo-card-image:focus-visible img {
-  transform: scale(1.025);
-}
-
-.photo-card-image:hover .photo-card-expand,
-.photo-card-image:focus-visible .photo-card-expand {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.photo-card figcaption {
-  padding: 0.8rem 0.9rem 0.95rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.photo-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(1rem, 4vw, 3rem);
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.photo-lightbox.active {
-  display: flex;
-}
-
-.photo-lightbox figure {
-  max-width: 92vw;
-  margin: 0;
-}
-
-.photo-lightbox img {
-  display: block;
-  max-width: 92vw;
-  max-height: 80vh;
-  border-radius: 0.5rem;
-  object-fit: contain;
-}
-
-.photo-lightbox figcaption {
-  max-width: 720px;
-  margin: 0.8rem auto 0;
-  color: #f5f5f5;
-  text-align: center;
-}
-
-.photo-lightbox-close {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.45);
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.photo-lightbox-open {
-  overflow: hidden;
+@media (max-width: 980px) {
+  .neuro-hero { min-height: auto; }
+  .neuro-hero-layout { position: relative; top: auto; grid-template-columns: 1fr; padding: 5rem 0 3rem; }
+  .neuro-visual { min-height: 520px; }
+  .neuro-sequence { position: relative; right: auto; bottom: auto; left: auto; grid-template-columns: repeat(3, 1fr); }
+  .neuro-sequence p { grid-column: 1 / -1; padding: 1rem; text-align: center; }
+  .neuro-card-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
-  .optimizers-section-grid {
-    grid-template-columns: 1fr;
+  .neuro-home,
+  .neuro-hero,
+  .neuro-hero-layout,
+  .neuro-copy,
+  .neuro-visual,
+  .neuro-sequence {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
+  .neuro-statusbar-reading { display: none; }
+  .neuro-hero { padding-inline: 1rem; }
+  .neuro-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.85rem, 13vw, 4rem);
+    letter-spacing: -0.07em;
+  }
+  .neuro-actions { align-items: flex-start; flex-direction: column; }
+  .neuro-visual { min-height: 410px; }
+  .neuro-coordinate { display: none; }
+  .neuro-game-hud {
+    top: 2.6rem;
+    right: 0.8rem;
+    gap: 0.7rem;
+  }
+  .neuro-game-instructions {
+    right: 8.8rem;
+    bottom: 0.8rem;
+    left: 0.8rem;
+    max-width: none;
+    font-size: 0.52rem;
+  }
+  .optimize-button {
+    right: 0.8rem;
+    bottom: 0.8rem;
+  }
+  .neuro-sequence { grid-template-columns: 1fr; }
+  .neuro-sequence button {
+    min-width: 0;
+    border-bottom: 1px solid var(--neuro-line);
+  }
+  .neuro-sequence p { grid-column: auto; }
+  .neuro-section-heading { grid-template-columns: 1fr; gap: 1.25rem; }
+  .neuro-card-grid { grid-template-columns: 1fr; }
+  .neuro-card { min-height: 320px; }
+  .photo-grid { columns: 2 140px; column-gap: var(--spacing-md); }
+}
 
-  .photo-grid {
-    columns: 2 140px;
-    column-gap: var(--spacing-md);
-  }
-
-  .photo-card {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .photo-card figcaption {
-    padding: 0.65rem 0.7rem 0.75rem;
-    font-size: 0.82rem;
-  }
-
-  .photo-card-favorite-badge {
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: 0.9rem;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .neuro-statusbar-brand i,
+  .optimize-button.is-optimized .optimize-button-core { animation: none; }
+  [data-neuro-reveal] { opacity: 1; transform: none; transition: none; }
 }

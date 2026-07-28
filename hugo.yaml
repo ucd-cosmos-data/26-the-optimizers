@@ -20,11 +20,11 @@ sitemap:
 params:
   enableIntegrity: false
   relatedPostsCount: 3
-  description: "COSMOS data science project site for The Optimizers."
+  description: "A COSMOS data science team turning noisy observations into clear, testable ideas."
   author: "The Optimizers"
   heroTitleLine1: "The Optimizers"
-  heroTitleLine2: "COSMOS Data Science"
-  footerText: "Built with Hugo and Mana theme"
+  heroTitleLine2: "Cognitive Systems"
+  footerText: "Observe. Model. Optimize."
   favicon: "bonsai.jpeg"
   math: true
   avatar:
