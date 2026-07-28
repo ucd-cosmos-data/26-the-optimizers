@@ -4,8 +4,6 @@ date: 2026-07-16
 author: "Advait"
 ---
 
-Second half of the second week (and the weekend)!
-
 ### Monday
 
 Learning day! We covered Neural networks in full and PF Chen starting rapping at the end to leave space for Wonjun to teach us gradient descent in the afternoon session (INFO OVERLOAD). After some okay food, our friends played beach volleyball for the millionth time on the beach courts on the other side of campus. In the morning, I was one minute late so I had to sing after nightlys. My energetic performance of "Kiss Me More" by Doja Cat was very well-received. I'm never going to be late again.
