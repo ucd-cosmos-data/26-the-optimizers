@@ -1,6 +1,6 @@
 ---
 title: "Log #4: July 20-23"
-date: 2026-07-28
+date: 2026-07-23
 author: "Advait"
 ---
 
