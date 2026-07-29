@@ -9,6 +9,14 @@ description: "A patient-specific and cross-patient analysis of optimal EEG senso
 
 ## **Introduction and Motivation**
 
+Electroencephalograms (EEGs) are widely used for seizure detection and diagnosis because they record the brain's electrical activity with high temporal resolution. Accurate seizure prediction is also actively researched and increasingly used in advanced systems. This prediction can improve patient safety and quality of life by providing early warnings before seizure onset. However, conventional EEG systems often rely on many electrodes, making them uncomfortable for long-term monitoring and difficult to use in wearable or home-based settings.
+
+Most seizure prediction methods use a fixed set of EEG sensors for all patients. This one-size-fits-all approach does not account for the large variation in seizure patterns across individuals. As a result, sensors that are informative for one patient may provide little useful information for another. Reducing the number of sensors while maintaining prediction performance remains an important challenge.
+
+This analysis investigates whether patient-specific EEG sensor selection can improve reduced-channel seizure prediction. We examine whether a small subset of carefully selected sensors can capture the information needed for accurate prediction. We also compare personalized sensor configurations with generalized sensor selections that are shared across patients to evaluate the trade-off between personalization and generalization.
+
+Our research addresses three main questions. First, how many EEG sensors are needed to preserve seizure-related information? Second, do patient-specific sensor selections outperform generalized sensor selections? Third, are there EEG sensors that are consistently selected across patients? Answering these questions can support the development of more efficient, comfortable, and practical EEG systems for long-term seizure monitoring.
+
 - Background on EEG-based seizure prediction and the challenges of high-density EEG systems
 - Limitations of using a fixed sensor configuration for all patients
 - Motivation for patient-specific sensor selection
