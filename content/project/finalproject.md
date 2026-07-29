@@ -39,6 +39,8 @@ For patient-specific models, seizures were ordered chronologically, and approxim
 
 ## **Determining the Optimal Number of EEG Sensors**
 
+Reducing the number of EEG sensors could make seizure-monitoring systems more comfortable, portable, and practical for long-term use. Conventional scalp EEG systems require many electrodes, which increases setup time, hardware complexity, computational requirements, and the need for careful placement. A smaller sensor set could simplify data collection and support wearable or home-based monitoring while retaining the information needed for seizure prediction.
+
 - Motivation for reducing the number of EEG sensors
 - Approach for determining the value of k (number of sensors)
 - Criteria used to evaluate whether a sensor subset sufficiently represents the data
