@@ -23,7 +23,7 @@ Answering these questions can support the development of more practical and comf
 
 ## **Dataset and Preprocessing**
 
-We used scalp EEG recordings from the Siena Scalp EEG Database, which contains 41 EDF recordings from 14 patients, including 47 annotated seizures and approximately 128 hours of EEG. For patient-specific training specifically, we restricted the analysis to the eight patients with at least three usable seizures (PN00, PN05, PN06, PN09, PN10, PN12, PN13, and PN14), yielding 37 seizures in total.
+We used scalp EEG recordings from the Siena Scalp EEG Database, which contains 41 EDF recordings from 14 patients, including 47 annotated seizures and approximately 128 hours of EEG. For patient-specific and generalized training , we restricted the analysis to the 5 patients with at least four usable seizures (Patients 0, 6, 10, 12, and 14), yielding 28 seizures in total.
 
 For each seizure, we extracted the five-minute preictal period immediately preceding seizure onset and paired it with a five-minute interictal segment from the same patient. Interictal segments were selected from seizure-free EEG and required to remain at least five minutes away from any annotated seizure to avoid contamination by preictal activity.
 
