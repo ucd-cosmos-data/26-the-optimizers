@@ -37,6 +37,8 @@ Features were computed independently for each electrode, including relative powe
 
 For patient-specific models, seizures were ordered chronologically, and approximately the final 20% of seizures (with at least one seizure per patient) were reserved for testing.
 
+[DISCUSS REMOVING CERTAIN AMPLITUDES OVER OR UNDER 500 OR -500 MICROVOLTS]
+
 ## **Determining the Optimal Number of EEG Sensors**
 
 Reducing the number of EEG sensors could make seizure-monitoring systems more comfortable, portable, and practical for long-term use. Conventional scalp EEG systems require many electrodes, which increases setup time, hardware complexity, computational requirements, and the need for careful placement. A smaller sensor set could simplify data collection and support wearable or home-based monitoring while retaining the information needed for seizure prediction.
