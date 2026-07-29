@@ -17,15 +17,6 @@ This analysis investigates whether patient-specific EEG sensor selection can imp
 
 Our research addresses three main questions. First, how many EEG sensors are needed to preserve seizure-related information? Second, do patient-specific sensor selections outperform generalized sensor selections? Third, are there EEG sensors that are consistently selected across patients? Answering these questions can support the development of more efficient, comfortable, and practical EEG systems for long-term seizure monitoring.
 
-- Background on EEG-based seizure prediction and the challenges of high-density EEG systems
-- Limitations of using a fixed sensor configuration for all patients
-- Motivation for patient-specific sensor selection
-- Research gap: whether fewer, strategically selected sensors can maintain or improve prediction performance
-- Research objectives/questions:
-    - How many sensors are needed to represent seizure-related information?
-    - Do patient-specific sensor selections outperform generalized selections?
-    - Are there common sensor patterns across patients?
-
 ## **Dataset and Preprocessing**
 
 - Overview of patient cohort and EEG recordings
