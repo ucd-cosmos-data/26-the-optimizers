@@ -3,6 +3,7 @@ locale: en-us
 defaultContentLanguage: en
 title: "The Optimizers"
 theme: "mana"
+buildFuture: true
 
 pagination:
   pageSize: 10
