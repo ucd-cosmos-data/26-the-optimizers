@@ -1,49 +1,51 @@
 ---
-title: "Patient-Specific EEG Electrode Selection for Reduced-Channel Seizure Prediction"
+title: "Choosing the Best EEG Sensors for Each Patient to Predict Seizures"
 date: 2026-08-01
 author: "The Optimizers"
-description: "Investigating whether personalized EEG electrode subsets can maintain seizure prediction performance while reducing the number of sensors required."
+description: "Exploring whether using a small, personalized set of EEG sensors for each patient can predict seizures as accurately as using many sensors."
 ---
 
 <div style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
 
 ## **Introduction and Motivation**
 
-Electroencephalograms (EEGs) are widely used for seizure detection because they measure brain activity with high temporal resolution. Predicting seizures before they occur can improve patient safety and quality of life by providing early warnings. However, conventional EEG systems require many electrodes, making long-term monitoring uncomfortable and limiting their use in wearable or home-based devices.
+Before a seizure happens, changes in brain activity can often be detected using electroencephalograms (EEGs). Predicting seizures early can give patients time to prepare and improve their safety and quality of life. However, standard EEG systems use many electrodes, making them uncomfortable for long-term or wearable use.
 
-Most seizure prediction methods use the same fixed set of EEG sensors for every patient, despite large differences in seizure patterns between individuals. As a result, sensors that are informative for one patient may contribute little for another. This study investigates whether patient-specific electrode selection can improve seizure prediction using a reduced number of EEG channels. We compare personalized electrode subsets with generalized electrode selections shared across patients to evaluate the trade-off between personalization and generalization.
+Most seizure prediction methods use the same EEG electrodes for every patient, even though seizure patterns vary from person to person. This means some electrodes may be useful for one patient but not for another. In this study, we test whether choosing EEG electrodes for each individual patient can maintain prediction accuracy while using fewer sensors.
 
-Specifically, we address three questions:
+We focus on three questions:
 
-1. How many EEG electrodes are needed to preserve seizure prediction performance?
-2. Do patient-specific electrode selections outperform generalized selections?
-3. Are certain electrodes consistently selected across patients?
-
-Answering these questions can support the development of more practical and comfortable EEG systems for long-term seizure monitoring.
+1. How few EEG electrodes can be used without reducing seizure prediction performance?
+2. Does choosing electrodes for each patient work better than using the same electrodes for everyone?
+3. Are there any electrodes that are consistently useful across different patients?
 
 ## **Dataset and Preprocessing**
 
-We used scalp EEG recordings from the Siena Scalp EEG Database, which contains 41 EDF recordings from 14 patients, including 47 annotated seizures and approximately 128 hours of EEG. For patient-specific and generalized training, we restricted the analysis to the five patients with at least four usable seizures: Patients 0, 6, 10, 12, and 14. These patients had 28 usable seizures in total.
+We used EEG recordings from the Siena Scalp EEG Database, which includes recordings from 14 patients. For this study, we focused on the five patients who had enough seizures for training and testing, giving a total of 28 usable seizures.
 
-For each seizure, we extracted the five-minute preictal period immediately before seizure onset. Each preictal period was paired with a five-minute interictal segment from the same patient. Interictal segments were selected from seizure-free EEG and were required to remain at least five minutes away from any annotated seizure. This reduced the risk of including preictal activity in the interictal data.
+For each seizure, we used the five minutes before the seizure as seizure data and matched it with a five-minute seizure-free segment from the same patient. Seizure-free segments were chosen to be well away from any seizure to avoid capturing early seizure activity.
 
-The model operated at five-second prediction landmarks. At each landmark, the model used only the preceding 120 seconds of EEG, ensuring that no future information was included. The prediction target indicated whether a seizure would begin within the following five minutes. This prediction period was divided into 60 consecutive five-second onset bins, along with a separate “no seizure within five minutes” class. This produced 60 training observations from each preictal or interictal episode.
-Only EEG channels were retained, while auxiliary signals such as EKG were excluded. Channel labels were standardized, and only electrodes available in every recording for a given patient were considered eligible. This ensured consistent sensor availability across training and testing.
+The model made a prediction every five seconds using only the previous two minutes of EEG data. Its task was to predict whether a seizure would occur within the next five minutes.
 
-EEG signals were cleaned at their original sampling rate of 512 Hz before being downsampled to 128 Hz and divided into non-overlapping five-second windows. Within each window, slow shifts in the signal’s baseline were removed. Channels that were flat, contained invalid values, or frequently reached the recording equipment’s limits were marked as unusable. We then reduced noise shared across the remaining channels and filtered out 60 Hz electrical interference. Values still above +500 µV were capped at +500 µV, while values below −500 µV were capped at −500 µV. Features from unusable channels were treated as missing, while channel usability was retained as a feature. The original EDF files were not changed.
+Only EEG signals were used. Other recorded signals, such as heart activity (EKG), were removed. The EEG data were cleaned to reduce noise and recording errors while keeping the original recordings unchanged.
 
-Features were calculated separately for each electrode. These included relative power in the delta, theta, alpha, beta, and low-gamma frequency bands, as well as root-mean-square amplitude, line length, and channel usability. Within each two-minute context, features from the 24 five-second windows were summarized using their mean, most recent value, and change over time. This produced 24 features per electrode while preserving electrode identity for channel selection.
+For each EEG electrode, we extracted features that describe brain activity, including power in different frequency bands and measures of signal strength and quality. These features summarized the previous two minutes of EEG and allowed the model to evaluate the importance of each electrode.
 
-For the patient-specific models, seizures were ordered chronologically. Approximately the final 20% of seizures were reserved for testing, with at least one test seizure selected for each patient.
+To test patient-specific models, seizures were ordered by time. Earlier seizures were used for training, while the most recent seizures (about 20%) were kept for testing.
 
 ## **Determining the Optimal Number of EEG Sensors**
 
-Reducing the number of EEG sensors could make seizure-monitoring systems more comfortable, portable, and practical for long-term use. Conventional scalp EEG systems require many electrodes, which increases setup time, hardware complexity, computational requirements, and the need for careful placement. A smaller sensor set could simplify data collection and support wearable or home-based monitoring while retaining the information needed for seizure prediction.
+Using fewer EEG sensors could make seizure-monitoring systems more comfortable, portable, and easier to use. It could also reduce setup time and make wearable or home-based devices more practical.
 
-- Approach for determining the value of k (number of sensors)
-- Criteria used to evaluate whether a sensor subset sufficiently represents the data
-- Trade-off between fewer sensors and prediction performance
-- Selection of the final sensor count used for subsequent analyses
+To find the smallest number of sensors needed, we tested models using 1 to 29 EEG electrodes. The model measured how well each electrode predicted seizures and gradually added the most useful electrodes until performance stopped improving.
+
+We evaluated the models by testing them on patients who were not included during training. This showed how well the selected sensors worked on unseen patients.
+
+The full 29-sensor system achieved an average precision of 0.250, while a 4-sensor system achieved 0.266. Performance improved quickly as sensors were added but leveled off after four sensors. Using more than four sensors did not provide a consistent improvement.
+
+Although the overall prediction accuracy was still modest, the goal was to compare fewer sensors with all 29 sensors, not to build a clinical-ready system. Under the same testing conditions, four sensors performed just as well as the full sensor set.
+
+Based on these results, we used four EEG sensors for the rest of the study. This reduced the number of electrodes by about 86% without a measurable loss in performance, suggesting that a small number of carefully chosen sensors may capture most of the useful information for seizure prediction.
 
 ## **Patient-Specific Sensor Selection**
 
