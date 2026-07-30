@@ -29,11 +29,9 @@ params:
   favicon: "bonsai.jpeg"
   math: true
   avatar:
-    url: "/26-the-optimizers/bonsai.jpeg"
+    url: "/26-the-optimizers/group-photo-square.jpeg"
     home:
-      url: "/26-the-optimizers/bonsai.jpeg"
-    about:
-      url: "/26-the-optimizers/bonsai.jpeg"
+      url: "/26-the-optimizers/group-photo-square.jpeg"
   social:
     github: "https://github.com/ucd-cosmos-data/26-the-optimizers"
   buyMeACoffee:
