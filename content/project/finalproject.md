@@ -6,7 +6,6 @@ description: "Exploring whether using a small, personalized set of EEG sensors f
 ---
 
 <div style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
-regularized logistic regression models 
 
 ## Introduction and Motivation
 
