@@ -27,7 +27,7 @@ We used EEG recordings from the Siena Scalp EEG Database, which includes recordi
 Only EEG signals were used. Other recorded signals, such as heart activity (EKG), were removed. The EEG data were cleaned to reduce noise and recording errors while preserving the original recordings.
 
 <figure id="artifact_cleanup" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/04_artifact_cleaning.png"
+    <img src="/26-the-optimizers/projects/finalproject/04_artifact_cleaning.png"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
@@ -36,7 +36,7 @@ For each EEG electrode, we extracted features describing brain activity, includi
 To test patient-specific models, seizures were ordered by time. Earlier seizures were used for training, while the most recent seizures (about 20%) were kept for testing.
 
 <figure id="dataset_coverage" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/00_dataset_coverage.png"
+    <img src="/26-the-optimizers/projects/finalproject/00_dataset_coverage.png"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
@@ -66,7 +66,7 @@ Our $K$-Finder algorithm was designed to find the value of $k$ for which an opti
 This effectively ranks the channels by predictive ability for each training patient. Running the algorithm with a $95%$ confidence interval resulted in $k=16$.
 
 <figure id="k_finder" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/01_k_finder.png"
+    <img src="/26-the-optimizers/projects/finalproject/01_k_finder.png"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
@@ -95,7 +95,7 @@ The reason we have $G_i$ (generalized) models is to compare personalized (patien
 The Gen-$1$, $P_i$, and $G_i$ models all use the same architecture. $G$ and $P$ were compared primarily using cross-entropy loss. Secondary metrics were AUPRC, AUROC, and Brier score, calculated on the same held-out seizure sessions; event-level versions were also reported. Brier score is calculated as the following: $B=\frac{1}{N}\sum_{i=1}^{N}{p_i-y)^2$ where $y$ is the true outcome and $p_i$ is the probability of having a seizure. Similar to cross-entropy, it penalizes confident but incorrect predictions, but rewards confident correct predictions. Cross-entropy loss measures how wrong a model’s predicted probabilities are. If the correctly predicted probability is high (80%), the loss is low and vice versa. Analysis of improvements or limitations of personalized approaches. For each patient, we noticed (blank finding) citations to appropriate figures. When directly comparing loss between the patient-specific and generalized (trained) models, $P_i$ provides the greatest benefit when more training data is available, as its loss is lower than $G_i$ for patients with more seizures in the training and testing sets (PN00, PN06, and PN10 have 5+ seizures).
 
 <figure id="p_vs_g" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/02_personalized_vs_generalized.png"
+    <img src="/26-the-optimizers/projects/finalproject/02_personalized_vs_generalized.png"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
  
@@ -103,8 +103,8 @@ The Gen-$1$, $P_i$, and $G_i$ models all use the same architecture. $G$ and $P$ 
 
 The $G_i$ Model achieved a mean AUPRC of 0.277, compared with a baseline mean patient positive rate of 0.233. Although this represents a modest average improvement, performance varied substantially across patients. The model clearly exceeded the baseline for $G_12$ and $G_14$, performed approximately at baseline for $G_0$, and fell below the baseline for $G_6$ and $G_10$. In addition, the mean AUROC of 0.501 indicates chance-level overall discrimination. These results suggest that seizure-related EEG patterns do not generalize equally well across patients and that the average improvement is driven by only a subset of the cohort. A single generalized model appears useful for certain patients, but it does not consistently identify seizure-related patterns in unseen individuals, making averaged results misleading.
 
-<figure id="g_i_model" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/g_models.stats.svg"
+<figure id="g_i_results" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
+    <img src="/26-the-optimizers/projects/finalproject/g_models_stats.svg"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
@@ -112,8 +112,8 @@ The $G_i$ Model achieved a mean AUPRC of 0.277, compared with a baseline mean pa
 
 The $P_i$ models produced a mean AUPRC of 0.293, compared with a mean patient baseline of 0.233. However, this improvement was not consistent across patients. The models exceeded baseline for P₀ and P₆ but fell below baseline for the other three patients. The mean AUROC of 0.487 also indicates chance-level overall discrimination. Therefore, personalization appears beneficial for certain patients, but the current results do not show that it reliably improves performance for every patient.
 
-<figure id="p_i_model" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/p_models.stats.svg"
+<figure id="p_i_results" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
+    <img src="/26-the-optimizers/projects/finalproject/p_models_stats.svg"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
@@ -121,8 +121,8 @@ The $P_i$ models produced a mean AUPRC of 0.293, compared with a mean patient ba
 
 The full-montage Gen-$1$ model achieved a mean held-out score of 0.238, compared with a mean positive-rate baseline of 0.209. It exceeded baseline for 8 of the 14 patients, showing that it learned useful seizure-related patterns for slightly more than half of the cohort. However, performance varied substantially between patients, and six patients remained below baseline. This suggests that a single full-channel model does not generalize equally well to every individual.
 
-<figure id="gen_1_model" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/gen1_model.stats.svg"
+<figure id="gen1_results" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
+    <img src="/26-the-optimizers/projects/finalproject/gen1_model_stats.svg"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
@@ -137,7 +137,7 @@ We define an invariant sensor to be a sensor present in every model $P_i$. Invar
 Implementing the algorithm gives us that the invariant sensor is $FC6$.
 
 <figure id="invariant_sensor" style="margin: 2rem auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #ffffff; text-align: center;">
-    <img src="/26-the-optimizers-analysis/final_project/results/final/figures/03_channel_selection_frequency.png"
+    <img src="/26-the-optimizers/projects/finalproject/03_channel_selection_frequency.png"
     style="display: block; width: 100%; max-width: 900px; margin: 0 auto; border: none; border-radius: 6px;">
 </figure>
 
