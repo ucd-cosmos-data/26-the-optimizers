@@ -25,7 +25,7 @@ description: "Exploring whether using a small, personalized set of EEG sensors f
   .slides-companion { color: #ffffff; margin: 0 auto; max-width: 720px; padding: 0 1rem 2rem; }
   .slides-companion .companion-intro { background: #eff6ff; border-radius: 14px; margin-bottom: 1rem; padding: 1.25rem; }
   .slides-companion .companion-intro h2 { color: #1e3a5f; font-size: 1.65rem; line-height: 1.2; margin: 0 0 0.6rem; }
-  .slides-companion .companion-intro p { margin: 0.6rem 0 0; }
+  .slides-companion .companion-intro p { color: #172033; margin: 0.6rem 0 0; }
   .slides-companion .slide-card { border: 1px solid #dbe4ef; border-radius: 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05); margin: 1rem 0; overflow: hidden; padding: 1.25rem; }
   .slides-companion .slide-label { color: #2563eb; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; margin: 0 0 0.35rem; text-transform: uppercase; }
   .slides-companion h3 { color: #1e3a5f; font-size: 1.3rem; line-height: 1.25; margin: 0 0 0.65rem; }
@@ -34,7 +34,7 @@ description: "Exploring whether using a small, personalized set of EEG sensors f
   .slides-companion figure { margin: 1rem 0 0; text-align: center; }
   .slides-companion figure img { border-radius: 8px; display: block; height: auto; margin: 0 auto; max-width: 100%; width: 100%; }
   .slides-companion figcaption { color: #59636e; font-size: 0.88rem; line-height: 1.4; margin-top: 0.55rem; }
-  .slides-companion .key-result { background: #e8f5ee; border-left: 4px solid #15803d; border-radius: 0 8px 8px 0; font-weight: 600; margin: 0.8rem 0 0; padding: 0.8rem 0.9rem; }
+  .slides-companion .key-result { background: #e8f5ee; border-left: 4px solid #15803d; border-radius: 0 8px 8px 0; color: #172033; font-weight: 600; margin: 0.8rem 0 0; padding: 0.8rem 0.9rem; }
   .slides-companion .presentation-link { display: inline-block; font-weight: 600; margin-top: 0.8rem; }
   @media (max-width: 520px) { .report-controls { flex-wrap: nowrap; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.2rem; } .report-controls label { font-size: 0.82rem; padding: 0.5rem 0.7rem; white-space: nowrap; } .slides-companion { padding-left: 0.75rem; padding-right: 0.75rem; } .slides-companion .slide-card { padding: 1rem; } }
 </style>
