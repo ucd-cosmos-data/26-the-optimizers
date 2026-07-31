@@ -22,7 +22,7 @@ description: "Exploring whether using a small, personalized set of EEG sensors f
   .plain-language-report figure { margin: 2.5rem auto; text-align: center; }
   .plain-language-report figure img { border-radius: 6px; display: block; margin: 0 auto; max-width: 900px; width: 100%; }
   .plain-language-report figcaption { color: #59636e; font-size: 0.92rem; line-height: 1.45; margin-top: 0.65rem; }
-  .slides-companion { color: #172033; margin: 0 auto; max-width: 720px; padding: 0 1rem 2rem; }
+  .slides-companion { color: #ffffff; margin: 0 auto; max-width: 720px; padding: 0 1rem 2rem; }
   .slides-companion .companion-intro { background: #eff6ff; border-radius: 14px; margin-bottom: 1rem; padding: 1.25rem; }
   .slides-companion .companion-intro h2 { color: #1e3a5f; font-size: 1.65rem; line-height: 1.2; margin: 0 0 0.6rem; }
   .slides-companion .companion-intro p { margin: 0.6rem 0 0; }
