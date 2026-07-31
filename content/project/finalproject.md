@@ -81,7 +81,7 @@ K-Finder used 29 EEG channels that were available for all 14 patients. For each 
 
 We measured performance with AUPRC, short for Area Under the Precision-Recall Curve. This is helpful when seizures are rare. Precision asks, “When the model gives a warning, how often is it right?” Recall asks, “How many seizure windows did the model find?” In our data, only 949 of 101,520 five-second intervals contained seizure activity, so a random model would have a very low AUPRC of 0.00935.
 
-We chose a rule that allowed at most a 0.02 drop in AUPRC for any patient. K-Finder found that 16 sensors met that rule.
+We chose a rule that allowed at most a 0.03 drop in AUPRC for any patient. K-Finder found that 16 sensors met that rule.
 
 <figure>
   <img src="/26-the-optimizers/projects/finalproject/01_k_finder.png" alt="K-Finder results showing model performance as the number of sensors increases">
@@ -171,7 +171,7 @@ Previous work with the Siena dataset has also found useful seizure-related infor
 
 ## Discussion
 
-Our strongest result is that 16 carefully chosen sensors were enough to keep the worst performance drop to 0.02 AUPRC. In other words, we removed 13 of the 29 common channels while retaining much of the information used for seizure prediction. This could help make future wearable EEG systems less expensive and more comfortable.
+Our strongest result is that 16 carefully chosen sensors were enough to keep the worst performance drop to 0.03 AUPRC. In other words, we removed 13 of the 29 common channels while retaining much of the information used for seizure prediction. This could help make future wearable EEG systems less expensive and more comfortable.
 
 Our model-comparison results are more cautious. Patient-specific sensor selection can be helpful, but mainly when enough training data are available. A one-size-fits-all model also worked for some people and not for others. Because of that, a shared starting layout plus patient-specific adjustments may be more useful than choosing only one of these approaches.
 
@@ -179,7 +179,7 @@ This study has important limits. The dataset was small: 14 patients and 47 seizu
 
 ## Conclusion
 
-This project showed that seizure-prediction research may not need a full 29-sensor EEG layout. A set of 16 selected sensors limited the worst-case AUPRC loss to 0.02. Personalized models were most useful when enough patient-specific seizure data were available, while generalized models did not transfer reliably to every person. FC6 was the only sensor selected in every patient-specific model, making it a promising channel for future study.
+This project showed that seizure-prediction research may not need a full 29-sensor EEG layout. A set of 16 selected sensors limited the worst-case AUPRC loss to 0.03. Personalized models were most useful when enough patient-specific seizure data were available, while generalized models did not transfer reliably to every person. FC6 was the only sensor selected in every patient-specific model, making it a promising channel for future study.
 
 Together, these findings support a practical direction for future seizure-warning systems: use a smaller shared sensor set, then personalize it when enough individual data are available. More data and stronger models are needed, but reducing the number of sensors could make long-term wearable EEG monitoring more realistic.
 
@@ -249,7 +249,7 @@ K-Finder estimates the smallest number of EEG sensors needed for seizure predict
 It performs leave-one-out testing across all 14 patients: 13 patients form the training set and the remaining patient is held out for testing. The training patients are divided into four folds of three or four patients each. Three folds are used for training and one for validation. K-Finder then adds the channels that produce the best validation score, maximizing macro-patient AUPRC, defined as $\frac{1}{N}\sum_{i=1}^{N} \mathrm{AUPRC}_i$.
 AUPRC is defined as the Area Under Precision-Recall Curve where $\text{Precision}=\frac{\text{True Seizure}}{\text{Total Seizure Predictions}}$ and $\text{Recall}=\frac{\text{Seizures Windows Correctly Identified}}{\text{Total Seizure Windows}}$. Precision calculates “What percent of seizure warnings from the model were actually seizures,” and Recall answers “How many true seizures were correctly labeled as seizures.” In general, a model with a high AUPRC is more accurate. Here, AUPRC is useful for prediction since seizure windows are relatively uncommon. Out of all $101,520$ 5-second intervals, $949$ of them contain seizure activity, making our random baseline AUPRC $0.00935$.
 
-Our $K$-Finder algorithm was designed to find the value of $k$ for which an optimal configuration of $k$ sensors yields a worst-case AUPRC loss of $0.02$ across all patients. 
+Our $K$-Finder algorithm was designed to find the value of $k$ for which an optimal configuration of $k$ sensors yields a worst-case AUPRC loss of $0.03$ across all patients. 
 This effectively ranks the channels by predictive ability for each training patient. Running the algorithm with a $95%$ confidence interval resulted in $k=16$.
 
 <figure id="k_finder" style="margin: 2.5rem auto; text-align: center;">
@@ -346,7 +346,7 @@ Other frequently selected sensors were $C4$, $CP1$, $F4$, $F8$, $F10$, $FP2$, $P
 
 ## Discussion
 
-Selecting 16 sensors reduced the number of channels while limiting the worst-case AUPRC loss to 0.02. This suggests that a smaller montage can retain much of the seizure-prediction information available in the full set of common channels, an encouraging result for more comfortable and lower-cost wearable systems.
+Selecting 16 sensors reduced the number of channels while limiting the worst-case AUPRC loss to 0.03. This suggests that a smaller montage can retain much of the seizure-prediction information available in the full set of common channels, an encouraging result for more comfortable and lower-cost wearable systems.
 
 Personalized models were most useful when enough patient-specific seizure data were available. A promising next step is a hybrid approach: begin with a shared set of channels and adapt the sensor selection as individual data accumulate. This study is limited by the simple Gen-1 model and the small dataset of 14 patients and 47 seizures. Because our primary goal was to compare reduced sensor sets with the full 29-channel montage, developing a state-of-the-art prediction model was outside the scope of this project. Larger datasets and stronger base models would provide a more reliable test of the proposed approach.
 
@@ -357,7 +357,7 @@ This project addressed three questions:
 2. Does choosing electrodes for each patient work better than using the same electrodes for everyone? 
 3. Are there any electrodes that are consistently useful across different patients for predicting seizures?
  
-Using 16 sensors—13 fewer than the 29 common EEG channels—limited the maximum AUPRC loss to 0.02. Patient-specific sensor selection was most helpful when sufficient patient-specific seizure data were available. FC6 was the only sensor selected consistently across all patient-specific models, suggesting that frontocentral activity may carry broadly useful predictive information, although this requires further testing. Overall, the results suggest that seizure-prediction systems may be able to use substantially fewer EEG channels without meaningful performance loss, making wearable monitoring more practical. They also indicate that personalization should be applied selectively rather than assumed to improve performance for every patient.
+Using 16 sensors—13 fewer than the 29 common EEG channels—limited the maximum AUPRC loss to 0.03. Patient-specific sensor selection was most helpful when sufficient patient-specific seizure data were available. FC6 was the only sensor selected consistently across all patient-specific models, suggesting that frontocentral activity may carry broadly useful predictive information, although this requires further testing. Overall, the results suggest that seizure-prediction systems may be able to use substantially fewer EEG channels without meaningful performance loss, making wearable monitoring more practical. They also indicate that personalization should be applied selectively rather than assumed to improve performance for every patient.
 
 ## Acknowledgements
 
