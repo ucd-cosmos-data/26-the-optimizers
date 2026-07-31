@@ -81,7 +81,7 @@ K-Finder used 29 EEG channels that were available for all 14 patients. For each 
 
 We measured performance with AUPRC, short for Area Under the Precision-Recall Curve. This is helpful when seizures are rare. Precision asks, “When the model gives a warning, how often is it right?” Recall asks, “How many seizure windows did the model find?” In our data, only 949 of 101,520 five-second intervals contained seizure activity, so a random model would have a very low AUPRC of 0.00935.
 
-We chose a rule that allowed at most a 0.03 drop in AUPRC for any patient. K-Finder found that 16 sensors met that rule.
+We chose a rule allowing no more than a 0.03 drop in AUPRC for any held-out patient. Across all 14 tests, 16 was the smallest observed sensor count that met this rule. The specific 16 sensors could differ from one test to another.
 
 <figure>
   <img src="/26-the-optimizers/projects/finalproject/01_k_finder.png" alt="K-Finder results showing model performance as the number of sensors increases">
@@ -249,8 +249,8 @@ K-Finder estimates the smallest number of EEG sensors needed for seizure predict
 It performs leave-one-out testing across all 14 patients: 13 patients form the training set and the remaining patient is held out for testing. The training patients are divided into four folds of three or four patients each. Three folds are used for training and one for validation. K-Finder then adds the channels that produce the best validation score, maximizing macro-patient AUPRC, defined as $\frac{1}{N}\sum_{i=1}^{N} \mathrm{AUPRC}_i$.
 AUPRC is defined as the Area Under Precision-Recall Curve where $\text{Precision}=\frac{\text{True Seizure}}{\text{Total Seizure Predictions}}$ and $\text{Recall}=\frac{\text{Seizures Windows Correctly Identified}}{\text{Total Seizure Windows}}$. Precision calculates “What percent of seizure warnings from the model were actually seizures,” and Recall answers “How many true seizures were correctly labeled as seizures.” In general, a model with a high AUPRC is more accurate. Here, AUPRC is useful for prediction since seizure windows are relatively uncommon. Out of all $101,520$ 5-second intervals, $949$ of them contain seizure activity, making our random baseline AUPRC $0.00935$.
 
-Our $K$-Finder algorithm was designed to find the value of $k$ for which an optimal configuration of $k$ sensors yields a worst-case AUPRC loss of $0.03$ across all patients. 
-This effectively ranks the channels by predictive ability for each training patient. Running the algorithm with a $95%$ confidence interval resulted in $k=16$.
+Our $K$-Finder algorithm selected the smallest sensor count $k$ for which the worst held-out-patient AUPRC loss, compared with the full 29-sensor model, was at most $0.03$.
+Across the 14 held-out-patient tests, the smallest observed count meeting this criterion was $k=16$.
 
 <figure id="k_finder" style="margin: 2.5rem auto; text-align: center;">
     <img src="/26-the-optimizers/projects/finalproject/01_k_finder.png"
