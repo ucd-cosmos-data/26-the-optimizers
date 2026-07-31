@@ -355,7 +355,8 @@ Personalized models were most useful when enough patient-specific seizure data w
 This project addressed three questions:
 1. How few EEG electrodes can be used without reducing seizure prediction performance? 
 2. Does choosing electrodes for each patient work better than using the same electrodes for everyone? 
-3. Are there any electrodes that are consistently useful across different patients for predicting seizures? 
+3. Are there any electrodes that are consistently useful across different patients for predicting seizures?
+ 
 Using 16 sensors—13 fewer than the 29 common EEG channels—limited the maximum AUPRC loss to 0.02. Patient-specific sensor selection was most helpful when sufficient patient-specific seizure data were available. FC6 was the only sensor selected consistently across all patient-specific models, suggesting that frontocentral activity may carry broadly useful predictive information, although this requires further testing. Overall, the results suggest that seizure-prediction systems may be able to use substantially fewer EEG channels without meaningful performance loss, making wearable monitoring more practical. They also indicate that personalization should be applied selectively rather than assumed to improve performance for every patient.
 
 ## Acknowledgements
