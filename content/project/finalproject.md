@@ -7,27 +7,102 @@ description: "Exploring whether using a small, personalized set of EEG sensors f
 
 <style>
   .report-switcher input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
-  .report-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem auto 2.5rem; max-width: 1000px; padding: 0 1rem; }
+  .report-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.25rem auto 1.5rem; max-width: 1000px; padding: 0 1rem; }
   .report-controls label { border: 1px solid #cbd5e1; border-radius: 999px; color: #475569; cursor: pointer; font-size: 0.94rem; font-weight: 600; padding: 0.55rem 1rem; transition: 0.15s ease; }
   .report-controls label:hover { border-color: #64748b; color: #0f172a; }
+  #slides-companion:checked ~ .report-controls label[for="slides-companion"],
   #technical-version:checked ~ .report-controls label[for="technical-version"],
   #plain-language-version:checked ~ .report-controls label[for="plain-language-version"] { background: #1e3a5f; border-color: #1e3a5f; color: #ffffff; }
-  .plain-language-report { display: none; }
+  .technical-report, .plain-language-report { display: none; }
+  #technical-version:checked ~ .technical-report,
   #plain-language-version:checked ~ .plain-language-report { display: block; }
-  #plain-language-version:checked ~ .technical-report { display: none; }
+  #technical-version:checked ~ .slides-companion,
+  #plain-language-version:checked ~ .slides-companion { display: none; }
   .plain-language-report .plain-note { background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0 6px 6px 0; color: #1e3a5f; margin: 0 0 2rem; padding: 1rem 1.15rem; }
   .plain-language-report figure { margin: 2.5rem auto; text-align: center; }
   .plain-language-report figure img { border-radius: 6px; display: block; margin: 0 auto; max-width: 900px; width: 100%; }
   .plain-language-report figcaption { color: #59636e; font-size: 0.92rem; line-height: 1.45; margin-top: 0.65rem; }
+  .slides-companion { color: #172033; margin: 0 auto; max-width: 720px; padding: 0 1rem 2rem; }
+  .slides-companion .companion-intro { background: #eff6ff; border-radius: 14px; margin-bottom: 1rem; padding: 1.25rem; }
+  .slides-companion .companion-intro h2 { color: #1e3a5f; font-size: 1.65rem; line-height: 1.2; margin: 0 0 0.6rem; }
+  .slides-companion .companion-intro p { margin: 0.6rem 0 0; }
+  .slides-companion .slide-card { border: 1px solid #dbe4ef; border-radius: 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05); margin: 1rem 0; overflow: hidden; padding: 1.25rem; }
+  .slides-companion .slide-label { color: #2563eb; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; margin: 0 0 0.35rem; text-transform: uppercase; }
+  .slides-companion h3 { color: #1e3a5f; font-size: 1.3rem; line-height: 1.25; margin: 0 0 0.65rem; }
+  .slides-companion p, .slides-companion li { line-height: 1.55; }
+  .slides-companion ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .slides-companion figure { margin: 1rem 0 0; text-align: center; }
+  .slides-companion figure img { border-radius: 8px; display: block; height: auto; margin: 0 auto; max-width: 100%; width: 100%; }
+  .slides-companion figcaption { color: #59636e; font-size: 0.88rem; line-height: 1.4; margin-top: 0.55rem; }
+  .slides-companion .key-result { background: #e8f5ee; border-left: 4px solid #15803d; border-radius: 0 8px 8px 0; font-weight: 600; margin: 0.8rem 0 0; padding: 0.8rem 0.9rem; }
+  .slides-companion .presentation-link { display: inline-block; font-weight: 600; margin-top: 0.8rem; }
+  @media (max-width: 520px) { .report-controls { flex-wrap: nowrap; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.2rem; } .report-controls label { font-size: 0.82rem; padding: 0.5rem 0.7rem; white-space: nowrap; } .slides-companion { padding-left: 0.75rem; padding-right: 0.75rem; } .slides-companion .slide-card { padding: 1rem; } }
 </style>
 
 <div class="report-switcher">
-  <input type="radio" name="report-version" id="technical-version" checked>
+  <input type="radio" name="report-version" id="slides-companion" checked>
+  <input type="radio" name="report-version" id="technical-version">
   <input type="radio" name="report-version" id="plain-language-version">
   <div class="report-controls" aria-label="Choose report version">
-    <label for="technical-version">Technical report</label>
-    <label for="plain-language-version">Plain-language report</label>
+    <label for="slides-companion">Slides companion</label>
+    <label for="technical-version">Raw technical report</label>
+    <label for="plain-language-version">Raw simple report</label>
   </div>
+
+<div class="slides-companion">
+  <div class="companion-intro">
+    <h2>Follow along with the presentation</h2>
+    <p>A quick, phone-friendly guide to our project: can seizure prediction use fewer EEG sensors while still keeping useful information?</p>
+    <a class="presentation-link" href="https://docs.google.com/presentation/d/1_abt6y5PC3gHAjjK1f-If-OtQK9rjge2rrbgm5XiD9A/edit?slide=id.g3f605c68456_2_167">Open the slideshow</a>
+  </div>
+
+  <section class="slide-card">
+    <p class="slide-label">The problem</p>
+    <h3>Wearable seizure warnings need fewer sensors</h3>
+    <p>EEG can reveal changes in brain activity before a seizure, but conventional systems use many scalp sensors. We investigated whether smaller, personalized sensor sets can support a more practical warning system.</p>
+    <ul><li>How few sensors can we use?</li><li>Does personalizing a model help?</li><li>Do any sensors work well across patients?</li></ul>
+  </section>
+
+  <section class="slide-card">
+    <p class="slide-label">Data</p>
+    <h3>14 patients and 47 recorded seizures</h3>
+    <p>We used EEG recordings from the Siena Scalp EEG Database. We cleaned recording artifacts, then summarized the previous two minutes of EEG activity for each prediction.</p>
+    <figure><img src="/26-the-optimizers/projects/finalproject/04_artifact_cleaning.png" alt="EEG recording before and after artifact cleaning"><figcaption>Cleaning reduces recording artifacts before feature extraction.</figcaption></figure>
+    <figure><img src="/26-the-optimizers/projects/finalproject/00_dataset_coverage.png" alt="Dataset coverage across 14 patients and 47 seizures"><figcaption>The amount of seizure data differs across patients.</figcaption></figure>
+  </section>
+
+  <section class="slide-card">
+    <p class="slide-label">Sensor selection</p>
+    <h3>Sixteen sensors met our performance target</h3>
+    <p>K-Finder tested sensor sets of different sizes across 29 channels shared by all patients. We required no more than a 0.03 drop in AUPRC for any held-out patient.</p>
+    <p class="key-result">Result: 16 sensors was the smallest observed set that met the criterion — 13 fewer than the full 29-channel layout.</p>
+    <figure><img src="/26-the-optimizers/projects/finalproject/01_k_finder.png" alt="K-Finder results showing model performance as the number of sensors increases"><figcaption>Performance versus number of selected sensors.</figcaption></figure>
+  </section>
+
+  <section class="slide-card">
+    <p class="slide-label">Personalized vs. shared</p>
+    <h3>Neither approach won for everyone</h3>
+    <p>We compared patient-specific models with models trained on other patients. Personalization helped most when a patient had enough earlier seizures available for training; generalized models did not transfer reliably to every new patient.</p>
+    <figure><img src="/26-the-optimizers/projects/finalproject/02_personalized_vs_generalized.png" alt="Comparison of personalized and generalized model performance by patient"><figcaption>Both approaches were evaluated on the same held-out sessions.</figcaption></figure>
+    <figure><img src="/26-the-optimizers/projects/finalproject/g_models_stats.svg" alt="Per-patient performance statistics for generalized models"><figcaption>Generalized-model results varied substantially by patient.</figcaption></figure>
+    <figure><img src="/26-the-optimizers/projects/finalproject/p_models_stats.svg" alt="Per-patient performance statistics for patient-specific models"><figcaption>Patient-specific models also helped inconsistently across the cohort.</figcaption></figure>
+    <figure><img src="/26-the-optimizers/projects/finalproject/gen1_model_stats.svg" alt="Per-patient performance statistics for the full-montage Gen-1 model"><figcaption>The full-sensor baseline showed the same patient-to-patient variation.</figcaption></figure>
+  </section>
+
+  <section class="slide-card">
+    <p class="slide-label">One shared signal</p>
+    <h3>FC6 appeared in every patient-specific sensor set</h3>
+    <p>FC6 was the only sensor selected by every patient-specific model. It is a promising starting point for future study, but it is not proof that one sensor is best for every person.</p>
+    <figure><img src="/26-the-optimizers/projects/finalproject/03_channel_selection_frequency.png" alt="Frequency with which EEG sensors were selected across patient-specific models"><figcaption>FC6 was selected in every patient-specific model.</figcaption></figure>
+  </section>
+
+  <section class="slide-card">
+    <p class="slide-label">Takeaway</p>
+    <h3>Start smaller, then personalize</h3>
+    <p>A 16-sensor layout retained much of the seizure-prediction information in this small study. A practical future system could begin with a shared sensor set, then adapt as it gathers more data from each person.</p>
+    <p>More patients, more seizures, and stronger models are needed before these findings could be used in a clinical device.</p>
+  </section>
+</div>
 
 <div class="plain-language-report" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
 
